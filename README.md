@@ -33,16 +33,16 @@ Donald D. Spencer
 
 ## CONTENIDO
 
-**Capítulo 1: Problemas introductorios** - 9  
-**Capítulo 2: Álgebra** - 19  
-**Capítulo 3: Geometría** - 37  
-**Capítulo 4: Trigonometría** - 53  
-**Capítulo 5: Probabilidad y estadística** - 61  
-**Capítulo 6: Matemáticas intermedias** - 77  
-**Capítulo 7: Teoría de los números** - 99  
-**Capítulo 8: Ciencias, química, física y biología** - 113  
-**Capítulo 9: Administración** - 121  
-**Capítulo 10: Diversión con la computadora** - 137  
-**Capítulo 11: Miscelánea de problemas** - 157
+**Capítulo 1: Problemas introductorios** 
+**Capítulo 2: Álgebra** 
+**Capítulo 3: Geometría** 
+**Capítulo 4: Trigonometría**  
+**Capítulo 5: Probabilidad y estadística**  
+**Capítulo 6: Matemáticas intermedias**  
+**Capítulo 7: Teoría de los números** 
+**Capítulo 8: Ciencias, química, física y biología**  
+**Capítulo 9: Administración**  
+**Capítulo 10: Diversión con la computadora** 
+**Capítulo 11: Miscelánea de problemas** 
 
 ---
