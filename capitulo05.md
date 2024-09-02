@@ -1,6 +1,6 @@
 Aquí está la lista completa de problemas del **Capítulo 7: Teoría de los Números** del documento:
 
-```latex
+
 ## CAPÍTULO 7: TEORÍA DE LOS NÚMEROS
 
 Este capítulo se centra en problemas relacionados con la teoría de los números, una rama de las matemáticas que estudia las propiedades de los números enteros. Estos problemas son adecuados para estudiantes de matemáticas que deseen explorar temas como números primos, factorización, propiedades de divisibilidad y otros conceptos importantes de la teoría de los números.
@@ -107,5 +107,5 @@ Este capítulo se centra en problemas relacionados con la teoría de los número
 98. Calcular la suma de los primeros 10 números de Leyland.
 99. Encontrar el valor de \(n\) que maximiza la función de divisor de Dirichlet para \(n\) menor que 1000.
 100. Escribir un programa que implemente el algoritmo de factorización de Pollard rho para un número dado.
-```
+
 
