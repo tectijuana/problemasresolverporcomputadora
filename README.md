@@ -46,3 +46,40 @@ Donald D. Spencer
 **Capítulo 11: Miscelánea de problemas** 
 
 ---
+
+
+Revisión 2
+
+Además de los paradigmas de programación procedimental, lógica, y funcional, existen otros paradigmas importantes en la programación que incluyen:
+
+Programación Orientada a Objetos (POO):
+Este paradigma se basa en la organización del software en "objetos", que son instancias de clases. Los objetos encapsulan datos y comportamientos relacionados.
+La programación orientada a objetos se centra en conceptos como clases, objetos, herencia, polimorfismo, encapsulación y abstracción.
+Programación Orientada a Eventos:
+En este paradigma, el flujo del programa está determinado por eventos, como acciones del usuario (clics de botones, movimientos de ratón), mensajes de otros programas o disparadores en una aplicación.
+Es común en entornos de interfaces gráficas de usuario (GUI) y en la programación de aplicaciones web.
+
+Programación Declarativa:
+Aunque es similar a la programación lógica, la programación declarativa se enfoca en el qué en lugar del cómo. Especifica el resultado deseado sin dictar los pasos específicos para lograrlo.
+Ejemplos incluyen lenguajes de consulta como SQL, así como lenguajes de programación de hojas de estilo como CSS.
+
+Programación Reactiva:
+Este paradigma se enfoca en manejar flujos de datos asíncronos y la propagación de cambios. Se utiliza en entornos donde la respuesta a estímulos en tiempo real es crucial.
+Es común en el desarrollo de interfaces de usuario modernas, aplicaciones móviles y aplicaciones web.
+
+
+Programación Concurrente y Paralela:
+Este paradigma se refiere a la ejecución de varias tareas de manera simultánea. Se utiliza para aprovechar al máximo los recursos de hardware, como los procesadores multi-core.
+Es importante en aplicaciones de alto rendimiento y sistemas que requieren procesamiento en tiempo real.
+
+Programación Basada en Aspectos:
+Permite la separación de preocupaciones a través de la introducción de aspectos, que encapsulan comportamientos que afectan múltiples clases en un solo módulo.
+Es útil para manejar preocupaciones transversales como la gestión de transacciones, la seguridad y el registro (logging).
+
+Programación Basada en Componentes:
+Este paradigma se enfoca en la construcción de software utilizando componentes reutilizables. Los componentes son piezas de código que se pueden ensamblar para formar aplicaciones completas.
+Es común en la arquitectura de software empresarial y en el desarrollo de aplicaciones web modernas.
+
+Programación Metaprogramación:
+La metaprogramación implica escribir programas que generan o manipulan otros programas o a sí mismos. Esto incluye conceptos como los macros, reflexiones y anotaciones.
+Es usada para crear frameworks y librerías de alto nivel que proporcionan abstracciones poderosas.
