@@ -13,7 +13,7 @@ Los problemas que se presentan en este capítulo son adecuados para un curso de 
 8. Escribir un programa para resolver triángulos rectángulos, dados los valores de un ángulo agudo y un lado.
 9. Escribir un programa para resolver triángulos rectángulos, dados los valores de dos lados.
 10. Usar las identidades trigonométricas básicas para calcular las funciones trigonométricas de ángulos agudos.
-11. Encontrar el valor de la función \( \sin(2\theta) \), dado \( \sin(\theta) \) y \( \cos(\theta) \).
+11. Encontrar el valor de la función $$ \sin(2\theta) $$, dado \( \sin(\theta) \) y \( \cos(\theta) \).
 12. Calcular los valores de las funciones \( \sin(\theta) \), \( \cos(\theta) \) y \( \tan(\theta) \) para \( \theta = 0, 30, 45, 60, 90 \) grados.
 13. Usar la relación \( \sin^2(\theta) + \cos^2(\theta) = 1 \) para encontrar el valor de \( \cos(\theta) \), dado \( \sin(\theta) \).
 14. Encontrar las soluciones para la ecuación trigonométrica \( \sin(\theta) = \frac{1}{2} \).
