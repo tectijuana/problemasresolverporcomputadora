@@ -10,7 +10,7 @@ Extensión moderna 2026: TecNM Campus Tijuana
 > Pensado para estudiantes, docentes y entusiastas que buscan retos algorítmicos de todos los niveles — desde fundamentos matemáticos hasta IA, agentes autónomos y sistemas embebidos. Una generación resiliente con habilidades técnicas y de proyección.
 
 [![Capítulos](https://img.shields.io/badge/Capítulos-22-blue)](.)
-[![Problemas](https://img.shields.io/badge/Problemas-1%2C131-green)](.)
+[![Problemas](https://img.shields.io/badge/Problemas-1%2C137-green)](.)
 [![Idioma](https://img.shields.io/badge/Idioma-Español-red)](.)
 [![Contexto](https://img.shields.io/badge/Contexto-México%202026-orange)](.)
 
