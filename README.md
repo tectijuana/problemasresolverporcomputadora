@@ -101,23 +101,15 @@ Los capítulos 19 (LLMs), 20 (Agentes) y 22 (Ética en IA) no tienen equivalente
 
 ---
 
-## Convención de formato
+## Para quien llega aquí buscando un reto
 
-- **Numeración**: `**N.**` al inicio de cada problema (permite `grep -c '^\*\*[0-9]'` para contar)
-- **LaTeX**: solo `$formula$` inline — cero entornos `\begin{}`/`\end{}` (compatible GitHub)
-- **Moneda**: `\$` en texto corrido para evitar conflicto con delimitador de fórmulas
-- **Encabezado Spencer**: `> *Basado en el libro de Donald D. Spencer, Editorial Limusa, 1985*`
-- **Encabezado extensión**: `> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*`
+Programar bien no es memorizar sintaxis — es aprender a descomponer problemas, reconocer patrones y construir soluciones que otros puedan entender. Eso toma tiempo, práctica y, sobre todo, problemas que valgan la pena resolver.
 
----
+Este repositorio existe porque creemos que los programadores mexicanos merecen material de calidad en su idioma, con contexto de su realidad y a la altura de los mejores recursos del mundo. Cada problema fue elegido o diseñado para que al resolverlo aprendas algo que importa — no solo para pasar un examen, sino para construir cosas reales.
 
-## Estado del proyecto
+No importa si estás en tu primer semestre o si llevas años en la industria: aquí hay un problema que todavía no sabes resolver. Ese es el punto de partida.
 
-- [x] Transcripción y corrección OCR completa (caps. 1–11)
-- [x] Modernización de precios, fechas y contexto cultural (caps. 1–11)
-- [x] Eliminación de redundancias dentro y entre capítulos
-- [x] Capítulos de extensión moderna escritos (caps. 12–22, 243 problemas)
-- [ ] Soluciones de referencia en Python/C
+**Resuélvelo. Comparte tu solución. Propón uno mejor.**
 
 ---
 
