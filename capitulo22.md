@@ -1,107 +1,65 @@
+# Capítulo 22: Seguridad, Ética e IA Responsable
 
-## CAPÍTULO 22: METAPROGRAMACIÓN
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo incluye problemas diseñados para ser resueltos utilizando técnicas de metaprogramación. La metaprogramación se refiere a la práctica de escribir programas que pueden leer, generar, analizar o transformar otros programas, o incluso modificarse a sí mismos mientras se ejecutan. Este enfoque es común en lenguajes dinámicos y es útil para construir código altamente flexible y reusable.
+## Introducción
 
-1. **Generación Automática de Código**: Escribe un programa que genere código para clases de modelo basándose en la estructura de una base de datos dada.
+El programador que solo sabe construir cosas pero no sabe protegerlas ni cuestionarlas es un peligro para sus usuarios. La seguridad informática no es un complemento opcional — es una responsabilidad profesional. Y en la era de la IA, la responsabilidad va más lejos: los algoritmos que construimos pueden discriminar, manipular, vigilar y tomar decisiones que afectan millones de vidas. Este capítulo es el cierre de todo el libro: no solo enseña a programar sistemas seguros, sino a preguntarse si lo que estamos construyendo es correcto construirlo. Los problemas combinan técnica con reflexión ética, porque esa es la formación que México necesita de sus ingenieros.
 
-2. **Creación Dinámica de Métodos**: Implementa un sistema en el que las clases puedan definir métodos de forma dinámica durante la ejecución basándose en ciertos parámetros de configuración.
+## Criptografía Aplicada
 
-3. **Intercepción de Métodos (Method Interception)**: Escribe un código que utilice decoradores para interceptar llamadas a métodos, registrar su entrada y salida, y medir el tiempo de ejecución.
+**1.** Implementar desde cero el cifrado AES-128 en modo CBC: dado un mensaje de texto y una clave de 128 bits, cifrar el mensaje y luego descifrarlo verificando que se recupera el original. Sin usar librerías criptográficas — implementar las operaciones SubBytes, ShiftRows, MixColumns y AddRoundKey a partir de las especificaciones del estándar FIPS-197.
 
-4. **Validación Automática de Datos**: Utiliza metaprogramación para crear una clase base que valide automáticamente los atributos de sus subclases basándose en anotaciones de tipo.
+**2.** Implementar el protocolo de intercambio de claves Diffie-Hellman: dos partes (Alice y Bob) generan sus claves públicas y las intercambian por un canal inseguro. Demostrar que ambos llegan al mismo secreto compartido sin haber transmitido ese secreto. Usar un primo seguro de 2048 bits. Explicar por qué Eve, que interceptó las claves públicas, no puede calcular el secreto.
 
-5. **Creación de un Motor de Plantillas**: Desarrolla un motor de plantillas sencillo que pueda transformar plantillas de texto en código HTML o XML utilizando sintaxis específica y expresiones de plantilla.
+**3.** Construir un sistema de firma digital con ECDSA (Elliptic Curve Digital Signature Algorithm): generar un par de claves (privada/pública) para una entidad del SAT, firmar un mensaje (comprobante fiscal), y verificar la firma. Demostrar que modificar un solo byte del mensaje hace que la verificación falle. Usar la curva P-256.
 
-6. **Proxy Dinámico de Objetos**: Implementa un sistema de proxies dinámicos que pueda interceptar y modificar llamadas a métodos de objetos existentes sin cambiar su código fuente.
+**4.** Implementar un gestor de contraseñas seguro: almacenar las contraseñas cifradas con AES-256-GCM usando una clave derivada de la contraseña maestra mediante PBKDF2 con 100,000 iteraciones y sal aleatoria. Implementar también verificación de contraseñas con bcrypt (costo 12). Demostrar por qué almacenar contraseñas en texto plano o con MD5 es inseguro mostrando un ataque de diccionario.
 
-7. **Reflexión para Análisis de Clases**: Escribe un programa que utilice reflexión para inspeccionar y listar todos los métodos y atributos de una clase dada en tiempo de ejecución.
+**5.** Construir un sistema de certificados digitales simplificado inspirado en PKI: una CA (autoridad certificadora) firma certificados con su clave privada RSA-2048. Los clientes verifican la autenticidad del certificado de un servidor usando la clave pública de la CA. Simular un ataque de man-in-the-middle que intenta sustituir el certificado y demostrar que el sistema lo detecta.
 
-8. **Compilador de Lenguaje Personalizado**: Crea un compilador sencillo que transforme un lenguaje de alto nivel específico en un lenguaje de máquina o bytecode.
+## Seguridad de Aplicaciones Web
 
-9. **Generación de Interfaces de Usuario Dinámicas**: Utiliza metaprogramación para generar formularios de interfaz de usuario dinámicamente basados en la estructura de clases de datos.
+**6.** Implementar y demostrar los 5 ataques más críticos del OWASP Top 10 en una aplicación web de práctica (nunca en sistemas reales): SQL Injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), Insecure Direct Object Reference (IDOR) y Server-Side Request Forgery (SSRF). Para cada ataque, implementar también la contramedida que lo previene.
 
-10. **Inyección de Dependencias Automática**: Implementa un sistema de inyección de dependencias que resuelva y cree automáticamente las dependencias necesarias para un objeto en tiempo de ejecución.
+**7.** Construir un escáner de vulnerabilidades básico para APIs REST: dado el endpoint base de una API de prueba, el escáner debe detectar automáticamente: endpoints sin autenticación, parámetros vulnerables a inyección, respuestas con información sensible en headers y rate limiting ausente. Reportar los hallazgos con nivel de severidad CVSS.
 
-11. **Generador de Documentación Automática**: Crea una herramienta que genere documentación automáticamente para el código fuente utilizando comentarios y anotaciones en el código.
+**8.** Implementar un Web Application Firewall (WAF) simplificado como middleware: analizar cada request entrante contra una lista de patrones maliciosos (payloads SQLi, XSS, path traversal), registrar en log los intentos detectados, bloquear el request y responder con 403. Medir la tasa de falsos positivos con tráfico legítimo y ajustar las reglas para minimizarlos sin reducir la detección.
 
-12. **Creación de DSL (Domain-Specific Language)**: Diseña e implementa un lenguaje específico de dominio que permita a los usuarios definir reglas de negocio o configuraciones de manera declarativa.
+**9.** Construir un sistema de auditoría de seguridad de dependencias: dado el `requirements.txt` o `package.json` de un proyecto, consultar la base de datos de CVEs (Common Vulnerabilities and Exposures) y reportar todas las versiones de dependencias con vulnerabilidades conocidas, su severidad CVSS y la versión segura disponible. Integrar el escáner como hook de pre-commit.
 
-13. **Metaclases para Control de Creación de Objetos**: Utiliza metaclases para imponer reglas sobre cómo se crean y configuran los objetos de una clase específica.
+## Seguridad en IA
 
-14. **Serialización y Deserialización Automática**: Implementa un sistema de serialización que convierta objetos a JSON, XML o YAML utilizando metaprogramación para manejar diferentes tipos de datos automáticamente.
+**10.** Implementar y demostrar ataques adversariales en una red neuronal de clasificación de imágenes: usando el método FGSM (Fast Gradient Sign Method), generar imágenes adversariales que el modelo clasifica incorrectamente con alta confianza pero que son visualmente indistinguibles del original para un humano. Calcular la perturbación mínima $\epsilon$ necesaria para engañar al modelo en el 90% de los casos.
 
-15. **Clonación de Objetos Profunda y Superficial**: Escribe un programa que utilice metaprogramación para implementar métodos de clonación profunda y superficial para objetos complejos.
+**11.** Implementar una defensa contra ataques de envenenamiento de datos (*data poisoning*): dado un dataset de entrenamiento para clasificar correos como spam/no-spam, simular un atacante que inserta 5% de muestras envenenadas (spam etiquetado como no-spam). Implementar técnicas de detección: análisis de influencia, clustering del espacio de características y filtrado estadístico de outliers.
 
-16. **Creación de Atajos para Accesores**: Utiliza metaprogramación para generar automáticamente métodos getters y setters para los atributos de una clase.
+**12.** Construir un sistema de detección de deepfakes de audio: dado un dataset de grabaciones reales e IA-generadas de políticos mexicanos, entrenar un clasificador que distinga voz auténtica de voz sintetizada. Analizar qué características espectrales distinguen mejor ambas clases (MFCC, espectrograma, pitch, jitter). Reportar la precisión del clasificador y sus limitaciones.
 
-17. **Transformación de Código Fuente en Tiempo de Ejecución**: Implementa un sistema que pueda modificar el código fuente de funciones en tiempo de ejecución para agregar o cambiar comportamiento.
+**13.** Implementar una auditoría de sesgo algorítmico en un clasificador de crédito: dado un modelo que aprueba o rechaza solicitudes de crédito, calcular métricas de equidad (fairness): paridad demográfica, igualdad de oportunidades e igualdad de error predictivo, desagregadas por género, estado de origen y nivel de ingresos. Identificar si el modelo discrimina algún grupo y proponer ajustes.
 
-18. **Creación de Aspectos con Metaprogramación**: Escribe un sistema que implemente la programación orientada a aspectos (AOP) utilizando metaprogramación para aplicar aspectos de forma transversal.
+## Privacidad y Datos Personales
 
-19. **Implementación de un Sistema de Plugins**: Crea un sistema de plugins que permita a los usuarios definir y registrar plugins de forma dinámica en una aplicación.
+**14.** Implementar técnicas de anonimización de datos para un dataset de expedientes médicos del IMSS: aplicar k-anonimidad (k=5) con supresión de cuasi-identificadores (edad → rango, municipio → zona), l-diversidad para atributos sensibles (diagnóstico) y t-closeness. Verificar que el dataset anonimizado cumple las tres propiedades y que la utilidad analítica se preserva.
 
-20. **Generador de Consultas SQL Dinámicas**: Utiliza metaprogramación para crear un sistema que genere consultas SQL basándose en estructuras de datos definidas por el usuario.
+**15.** Implementar privacidad diferencial: agregar ruido calibrado (mecanismo de Laplace) a estadísticas sobre una base de datos de salarios del IMSS de tal forma que el resultado final cumple $\epsilon$-differential privacy con $\epsilon = 1.0$. Demostrar que la presencia o ausencia de cualquier individuo cambia el resultado en menos del factor $e^\epsilon = 2.72$.
 
-21. **Inyección de Código para Depuración**: Escribe un programa que inyecte automáticamente código de depuración en las funciones para registrar valores de variables y flujos de ejecución.
+**16.** Construir un sistema de gestión de consentimientos para una app de salud que recopila datos personales: implementar el flujo completo conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP): solicitar consentimiento explícito por categoría de dato, registrar las decisiones con timestamp, permitir revocación en cualquier momento, y eliminar todos los datos del usuario dentro de 72 horas de solicitarlo.
 
-22. **Manipulación de Bytecode**: Implementa un programa que lea y modifique bytecode para cambiar el comportamiento de funciones sin modificar el código fuente original.
+## Ética en IA y Reflexión Profesional
 
-23. **Creación de Mixins para Comportamiento Común**: Utiliza metaprogramación para definir mixins que añadan comportamiento común a diferentes clases sin herencia múltiple directa.
+**17.** Analizar el impacto ético de un sistema de reconocimiento facial implementado en el transporte público de Tijuana para identificar personas con órdenes de arresto: a) Identificar los grupos de derechos fundamentales involucrados (privacidad, presunción de inocencia, no discriminación). b) Calcular el impacto de una tasa de error del 1% dado el volumen de viajeros diarios. c) Proponer un diseño alternativo que alcance el objetivo de seguridad con menor costo en derechos.
 
-24. **Optimización Automática de Código**: Escribe un programa que analice y optimice el código fuente para mejorar su rendimiento basándose en patrones comunes de ineficiencia.
+**18.** Diseñar el proceso de evaluación de impacto ético (AI Impact Assessment) para un sistema de IA que determina la asignación de plazas docentes en el TecNM basándose en el historial de calificaciones de estudiantes: a) Identificar los grupos afectados y sus intereses. b) Detectar posibles fuentes de sesgo en los datos de entrenamiento. c) Proponer métricas de auditoría continua. d) Definir el proceso de apelación para decisiones automatizadas.
 
-25. **Extensión de Sintaxis de Lenguaje**: Crea una extensión para un lenguaje de programación que añada nuevas construcciones o palabras clave mediante metaprogramación.
+**19.** Construir un framework de *responsible AI* para una startup mexicana de fintech: documentar las políticas de: uso aceptable del modelo, transparencia hacia los usuarios afectados, registro de decisiones automatizadas, auditoría periódica de sesgo y proceso de revisión humana obligatoria para decisiones de alto impacto (créditos mayores a \$50,000). El framework debe cumplir con la regulación de la CNBV y el INAI.
 
-26. **Verificación de Tipos en Tiempo de Ejecución**: Implementa un sistema que verifique tipos de datos en tiempo de ejecución y genere errores o advertencias si los tipos no coinciden con los esperados.
+---
 
-27. **Implementación de un Sistema de Permisos**: Utiliza metaprogramación para crear un sistema de permisos que asigne automáticamente permisos basados en anotaciones en clases y métodos.
+## Problemas adicionales
 
-28. **Generador de Casos de Prueba Automáticos**: Crea una herramienta que genere automáticamente casos de prueba basados en la estructura de las funciones y las clases del código fuente.
+**20.** Implementar un sistema de *honeypot* para detectar bots maliciosos en el portal de servicios del gobierno: agregar campos invisibles al HTML que ningún humano llenaría, detectar velocidades de llenado de formulario imposibles para humanos (< 2 segundos), y bloquear IPs que muestren estos patrones. Registrar los intentos detectados para análisis forense.
 
-29. **Creación de Observadores Dinámicos**: Escribe un programa que permita añadir observadores a objetos para reaccionar a cambios en sus propiedades en tiempo de ejecución.
+**21.** Construir un sistema de respuesta a incidentes (IRS) para una empresa: cuando se detecta un incidente de seguridad (acceso no autorizado, fuga de datos, ransomware), el sistema debe: a) contener automáticamente el daño (aislar el sistema afectado), b) notificar al equipo de seguridad en menos de 5 minutos, c) generar un reporte del incidente con timeline, d) activar el plan de continuidad de negocio. Implementar el plan basado en el estándar NIST SP 800-61.
 
-30. **Inyección de Dependencias en Funciones**: Utiliza metaprogramación para crear un sistema que inyecte automáticamente dependencias en las funciones basándose en los parámetros de las funciones.
-
-31. **Metaprogramación para Multilenguaje**: Implementa un sistema que permita integrar y ejecutar código de diferentes lenguajes de programación dentro de una sola aplicación.
-
-32. **Ejecución de Código en Tiempo de Compilación**: Escribe un programa que ejecute ciertas partes del código en tiempo de compilación para optimizar el rendimiento de tiempo de ejecución.
-
-33. **Creación de Decoradores para Validación de Acceso**: Utiliza metaprogramación para crear decoradores que validen automáticamente el acceso a métodos basándose en roles y permisos.
-
-34. **Análisis Estático de Código**: Implementa una herramienta que utilice metaprogramación para analizar el código en busca de errores potenciales o violaciones de buenas prácticas.
-
-35. **Definición Dinámica de Interfaces**: Escribe un sistema que permita a los usuarios definir y modificar interfaces dinámicamente en tiempo de ejecución.
-
-36. **Creación de Tests Basados en Propiedades**: Utiliza metaprogramación para generar automáticamente tests basados en propiedades matemáticas o lógicas de funciones.
-
-37. **Transformación de Código Funcional a Imperativo**: Crea un programa que transforme código escrito en un estilo funcional a un estilo imperativo utilizando metaprogramación.
-
-38. **Composición Dinámica de Funciones**: Implementa un sistema que permita componer funciones dinámicamente para crear nuevas funciones en tiempo de ejecución.
-
-39. **Gestión de Recursos Automática**: Escribe un programa que utilice metaprogramación para gestionar la apertura y cierre de recursos (como archivos o conexiones de red) automáticamente.
-
-40. **Implementación de Polimorfismo Ad Hoc**: Crea un sistema que permita a los métodos comportarse de manera diferente basándose en los tipos de los argumentos de entrada.
-
-41. **Generación de Código Multi-Hilo**: Utiliza metaprogramación para generar automáticamente código que aproveche múltiples hilos para tareas paralelas.
-
-42. **Implementación de Monitoreo de Rendimiento**: Escribe un programa que inyecte código para monitorear y registrar el rendimiento de las funciones en tiempo de ejecución.
-
-43. **Adaptación de Comportamiento Basado en Contexto**: Crea un sistema que cambie el comportamiento de las funciones en tiempo de ejecución basado en el contexto de su invocación.
-
-44. **Creación de Macros Personalizadas**: Implementa un sistema que permita definir y utilizar macros personalizadas para automatizar tareas repetitivas en el código.
-
-45. **Refactorización Automática de Código**: Escribe una herramienta que identifique patrones de código subóptimos y los refactorice automáticamente para mejorar la calidad del código.
-
-46. **Automatización de Configuración de Aplicaciones**: Utiliza metaprogramación para generar configuraciones de aplicaciones basadas en el entorno y parámetros de entrada.
-
-47. **Implementación de Filtros de Seguridad**: Crea un sistema que filtre automáticamente las entradas y salidas de funciones para proteger contra inyecciones de código o ataques de seguridad.
-
-48. **Generación de Código para Interfaces de Red**: Escribe un programa que genere automáticamente código para la comunicación en red basándose en protocolos definidos por el usuario.
-
-49. **Automatización de la Serialización de Objetos Complejos**: Utiliza metaprogramación para crear un sistema que serialice y deserialice objetos complejos de manera eficiente.
-
-50. **Implementación de un Interprete de Comandos**: Crea un intérprete que permita ejecutar comandos personalizados definidos por el usuario utilizando un lenguaje específico de dominio.
-
-
-Estos problemas están diseñados para aplicar y reforzar los conceptos de metaprogramación, proporcionando oportunidades para trabajar con generación y transformación de código, reflexión, análisis de código en tiempo de ejecución, y creación de herramientas avanzadas de desarrollo.****
+**22.** Implementar un sistema de detección de fraude en tiempo real para transacciones SPEI: dado un flujo de transacciones, detectar en menos de 100ms si una transacción es potencialmente fraudulenta usando un modelo de ML entrenado con patrones históricos. Las transacciones sospechosas se marcan para revisión humana — no se bloquean automáticamente. Implementar el circuito completo: modelo, API de predicción, registro de decisiones y panel de revisión humana. Justificar por qué la decisión final debe ser humana.

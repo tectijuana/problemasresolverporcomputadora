@@ -1,85 +1,89 @@
+# Capítulo 12: Algoritmos Clásicos y Estructuras de Datos
 
-## CAPÍTULO 12: CIENCIAS DE LA COMPUTACIÓN
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo incluye problemas relacionados con temas fundamentales de la ciencia de la computación, como estructuras de datos, algoritmos, complejidad computacional y técnicas de programación. Estos problemas están diseñados para ayudar a los estudiantes a desarrollar habilidades en el diseño y análisis de algoritmos y en la implementación de soluciones de programación.
+## Introducción
 
-1. Implementar un algoritmo de búsqueda lineal para encontrar un elemento en una lista.
-2. Implementar un algoritmo de búsqueda binaria para encontrar un elemento en una lista ordenada.
-3. Escribir un programa que ordene una lista de números utilizando el algoritmo de ordenamiento por burbuja.
-4. Escribir un programa que ordene una lista de números utilizando el algoritmo de ordenamiento por inserción.
-5. Escribir un programa que ordene una lista de números utilizando el algoritmo de ordenamiento por selección.
-6. Implementar el algoritmo de ordenamiento rápido (quicksort) para ordenar una lista de números.
-7. Implementar el algoritmo de ordenamiento por fusión (mergesort) para ordenar una lista de números.
-8. Escribir un programa que implemente el algoritmo de ordenamiento de montículos (heapsort).
-9. Implementar un algoritmo para encontrar el máximo común divisor (MCD) de dos números utilizando el método de Euclides.
-10. Implementar un algoritmo para encontrar el mínimo común múltiplo (MCM) de dos números.
-11. Escribir un programa que implemente el algoritmo de búsqueda en profundidad (DFS) en un grafo.
-12. Escribir un programa que implemente el algoritmo de búsqueda en anchura (BFS) en un grafo.
-13. Implementar un algoritmo para encontrar el camino más corto entre dos nodos en un grafo utilizando el algoritmo de Dijkstra.
-14. Implementar un algoritmo para encontrar el árbol de expansión mínima en un grafo utilizando el algoritmo de Kruskal.
-15. Implementar un algoritmo para encontrar el árbol de expansión mínima en un grafo utilizando el algoritmo de Prim.
-16. Escribir un programa que implemente el algoritmo de Floyd-Warshall para encontrar todos los caminos más cortos en un grafo.
-17. Implementar un algoritmo para detectar ciclos en un grafo dirigido.
-18. Implementar un algoritmo para detectar ciclos en un grafo no dirigido.
-19. Escribir un programa que implemente el algoritmo de ordenación topológica en un grafo dirigido acíclico (DAG).
-20. Implementar un algoritmo de búsqueda de patrones en una cadena utilizando el algoritmo de Knuth-Morris-Pratt (KMP).
-21. Implementar un algoritmo de búsqueda de patrones en una cadena utilizando el algoritmo de Boyer-Moore.
-22. Escribir un programa que implemente el algoritmo de compresión de datos Huffman.
-23. Implementar un algoritmo para la búsqueda de cadenas utilizando la técnica de hash de Rabin-Karp.
-24. Implementar un algoritmo de búsqueda de subcadenas utilizando el algoritmo de Aho-Corasick.
-25. Escribir un programa que implemente el algoritmo de Floyd para encontrar el ciclo más corto en un grafo ponderado.
-26. Implementar un algoritmo de planificación de tareas utilizando el algoritmo de Johnson.
-27. Escribir un programa para implementar una cola de prioridad utilizando un montículo binario.
-28. Implementar una tabla hash con manejo de colisiones mediante encadenamiento.
-29. Implementar una tabla hash con manejo de colisiones mediante direccionamiento abierto.
-30. Escribir un programa para implementar un árbol binario de búsqueda (BST).
-31. Implementar un algoritmo para equilibrar un árbol binario de búsqueda utilizando rotaciones AVL.
-32. Implementar un árbol rojo-negro (Red-Black Tree).
-33. Escribir un programa para implementar un trie para almacenar y buscar cadenas.
-34. Implementar un algoritmo de ordenación externa utilizando el algoritmo de fusión de varios caminos.
-35. Escribir un programa para implementar un grafo utilizando listas de adyacencia.
-36. Implementar un grafo utilizando matrices de adyacencia.
-37. Escribir un programa que implemente el algoritmo de multiplicación de matrices de Strassen.
-38. Implementar un algoritmo para calcular la transformada rápida de Fourier (FFT).
-39. Escribir un programa para calcular la transformada inversa de Fourier.
-40. Implementar un algoritmo de cifrado y descifrado utilizando el cifrado de César.
-41. Implementar un algoritmo de cifrado y descifrado utilizando el cifrado de Vigenère.
-42. Escribir un programa para implementar el algoritmo de encriptación RSA.
-43. Implementar un algoritmo de generación de números pseudoaleatorios utilizando el método de congruencia lineal.
-44. Implementar un algoritmo de generación de números pseudoaleatorios utilizando el método de LFSR (Linear Feedback Shift Register).
-45. Escribir un programa para calcular el número de permutaciones posibles de una lista de elementos.
-46. Implementar un algoritmo para calcular el número de combinaciones posibles de elegir \(k\) elementos de un conjunto de \(n\) elementos.
-47. Implementar un algoritmo de recorrido en orden preorden, enorden y postorden en un árbol binario.
-48. Escribir un programa para convertir un árbol binario a su representación de árbol de búsqueda binaria (BST).
-49. Implementar un algoritmo para encontrar el ancestro común más cercano de dos nodos en un árbol binario.
-50. Escribir un programa que implemente un autómata finito determinista (DFA).
-51. Implementar un autómata finito no determinista (NFA).
-52. Escribir un programa que implemente la conversión de un NFA a un DFA.
-53. Implementar un algoritmo para simular una máquina de Turing.
-54. Escribir un programa para evaluar una expresión aritmética utilizando la notación polaca inversa (RPN).
-55. Implementar un algoritmo para la evaluación de expresiones aritméticas utilizando un árbol de expresión.
-56. Escribir un programa para implementar un analizador léxico para una expresión matemática.
-57. Implementar un algoritmo de generación de código para una máquina hipotética utilizando un compilador simple.
-58. Escribir un programa para implementar una máquina de pila (stack machine).
-59. Implementar un algoritmo de evaluación de expresiones booleanas utilizando un árbol de expresión.
-60. Escribir un programa que implemente una máquina de estados finitos para un juego simple.
-61. Implementar un algoritmo de procesamiento de lenguaje natural para tokenizar una cadena de texto.
-62. Escribir un programa que implemente el algoritmo de Levenshtein para calcular la distancia de edición entre dos cadenas.
-63. Implementar un algoritmo para la búsqueda de aproximación de cadenas utilizando el algoritmo de Levenshtein.
-64. Escribir un programa para calcular la complejidad de tiempo de un algoritmo dado utilizando la notación Big-O.
-65. Implementar un algoritmo para calcular la complejidad de espacio de un algoritmo utilizando la notación Big-O.
-66. Escribir un programa que implemente un sistema de gestión de memoria utilizando el algoritmo de paginación.
-67. Implementar un sistema de gestión de memoria utilizando el algoritmo de segmentación.
-68. Escribir un programa para simular un algoritmo de planificación de procesos utilizando Round-Robin.
-69. Implementar un algoritmo de planificación de procesos utilizando el algoritmo de prioridad.
-70. Escribir un programa para simular un sistema operativo simple con manejo de procesos y memoria.
-71. Implementar un sistema de archivos simple con operaciones de creación, lectura, escritura y eliminación.
-72. Escribir un programa para implementar un intérprete simple de un lenguaje de programación.
-73. Implementar un algoritmo de optimización de compiladores utilizando el análisis de flujo de datos.
-74. Escribir un programa que implemente un sistema de detección de intrusiones en una red utilizando un algoritmo de aprendizaje automático.
-75. Implementar un algoritmo de reconocimiento de patrones utilizando una red neuronal básica.
-76. Escribir un programa para implementar un sistema de recomendación utilizando filtrado colaborativo.
-77. Implementar un algoritmo de agrupamiento utilizando el algoritmo K-means.
-78. Escribir un programa que implemente un árbol de decisión para la clasificación de datos.
-79. Implementar un algoritmo de búsqueda de profundidad limitada (IDS).
-80. Escribir un programa para simular un juego de ajedrez utilizando inteligencia artificial.
+Los algoritmos y las estructuras de datos son el vocabulario fundamental de la programación. Dominarlos permite escribir código que no solo funciona, sino que escala. Un algoritmo de búsqueda lineal puede ser aceptable con 100 registros; con 10 millones, necesitas búsqueda binaria. Este capítulo cubre las estructuras y algoritmos que todo programador debe conocer antes de enfrentar entrevistas técnicas, proyectos de alto rendimiento o competencias de programación. Los problemas están ordenados de menor a mayor complejidad dentro de cada subtema.
+
+## Búsqueda y Ordenamiento
+
+**1.** Implementar búsqueda lineal que reciba una lista y un valor objetivo, y devuelva el índice donde se encuentra o −1 si no existe. Medir el número de comparaciones realizadas. ¿Cómo cambia ese número cuando el elemento está al principio, al final o no existe?
+
+**2.** Implementar búsqueda binaria iterativa y recursiva sobre una lista ordenada. Verificar que ambas produzcan el mismo resultado en 20 pruebas. ¿Cuántas comparaciones hace cada versión en el peor caso para una lista de 1,000,000 elementos?
+
+**3.** Implementar los seis algoritmos de ordenamiento clásicos: burbuja, selección, inserción, quicksort, mergesort y heapsort. Para cada uno, contar comparaciones e intercambios al ordenar la misma lista de 1,000 números aleatorios. Presentar resultados en tabla comparativa.
+
+**4.** Dado un arreglo casi ordenado (solo 5 elementos fuera de lugar en una lista de 1,000), demostrar experimentalmente qué algoritmo es más eficiente midiendo tiempo de ejecución para: arreglo casi ordenado, ordenado al revés y completamente aleatorio.
+
+**5.** Implementar ordenamiento externo para un archivo de 10 millones de enteros que no cabe en RAM. Dividir en bloques manejables, ordenar cada bloque y fusionarlos con una cola de prioridad. Verificar que el archivo de salida está correctamente ordenado.
+
+## Estructuras de Datos Lineales
+
+**6.** Implementar una pila con las operaciones push, pop, peek e isEmpty. Usarla para verificar que una expresión con paréntesis, corchetes y llaves esté balanceada. Probar con: `{[()]}` (válido), `([)]` (inválido), `(((` (inválido).
+
+**7.** Implementar una cola y usarla para simular la fila de atención en una ventanilla del IMSS: llegan pacientes cada 1–5 minutos (aleatorio), la atención toma 3–7 minutos (aleatorio). Simular 8 horas e imprimir tiempo de espera promedio y máximo.
+
+**8.** Implementar una lista enlazada simple con inserción al inicio, inserción al final, eliminación por valor y búsqueda. Luego implementar la inversión de la lista en su lugar sin copiar a un arreglo auxiliar.
+
+**9.** Implementar una lista doblemente enlazada para representar el historial de navegación de un explorador web: avanzar, retroceder y agregar nueva página eliminan el historial hacia adelante. El historial tiene un límite máximo de 50 páginas.
+
+**10.** Implementar una tabla hash con manejo de colisiones por encadenamiento. Insertar los RFC de 10,000 contribuyentes ficticios (13 caracteres) y medir: número de colisiones, longitud promedio de las cadenas y tiempo de búsqueda promedio.
+
+## Árboles
+
+**11.** Implementar un árbol binario de búsqueda (BST) con inserción, búsqueda y eliminación. Insertar los 32 estados de México en orden alfabético y luego en orden aleatorio. Comparar la altura del árbol resultante en cada caso.
+
+**12.** Implementar los tres recorridos de un árbol binario: preorden, inorden y postorden, de forma recursiva e iterativa. Verificar que el recorrido inorden de un BST produce los elementos en orden ascendente.
+
+**13.** Implementar un árbol AVL que mantenga el balance automáticamente mediante rotaciones. Demostrar que la altura con $n$ nodos es siempre $O(\log n)$ insertando 1,000 elementos y midiendo la altura resultante vs. un BST no balanceado.
+
+**14.** Implementar un montículo binario mínimo con inserción y extracción del mínimo. Usarlo para implementar el algoritmo de Huffman: dado un texto en español, construir el árbol, generar los códigos de cada carácter y calcular la tasa de compresión.
+
+**15.** Implementar un trie (árbol de prefijos) para almacenar palabras del español. Implementar búsqueda exacta, búsqueda por prefijo (autocompletar) y conteo de palabras que comienzan con un prefijo dado. Probar con un vocabulario de 10,000 palabras.
+
+## Grafos
+
+**16.** Representar el mapa del Metro CDMX como un grafo no dirigido. Implementar BFS para encontrar la ruta con menor número de estaciones entre dos estaciones dadas. Imprimir el camino completo y el número de transbordos.
+
+**17.** Modelar la red de carreteras entre las capitales de los 32 estados de México como grafo ponderado (distancia en km). Implementar Dijkstra para encontrar la ruta más corta entre cualquier par de ciudades.
+
+**18.** Usando la misma red de capitales, implementar Kruskal para encontrar el árbol de expansión mínima: la red de menor longitud total que conecte todas las capitales. ¿Cuántos km de carretera se necesitan en total?
+
+**19.** Implementar Floyd-Warshall para calcular la distancia más corta entre todos los pares de nodos. Identificar la ciudad "más central": aquella con menor distancia máxima a cualquier otra ciudad de la red.
+
+**20.** Detectar ciclos en un grafo dirigido usando DFS con coloración de nodos. Aplicarlo para verificar que un conjunto de dependencias entre módulos de software no tiene dependencias circulares (el grafo de dependencias debe ser un DAG).
+
+## Algoritmos sobre Cadenas
+
+**21.** Implementar el algoritmo KMP para búsqueda de patrones. Comparar su velocidad con búsqueda ingenua buscando una secuencia de ADN de 20 nucleótidos dentro de un genoma de 1,000,000 de bases. Medir comparaciones realizadas por cada algoritmo.
+
+**22.** Calcular la distancia de Levenshtein entre dos palabras. Construir un corrector ortográfico que sugiera las 3 palabras más cercanas a una palabra mal escrita, consultando un diccionario de 50,000 palabras del español mexicano.
+
+**23.** Encontrar la subcadena palíndroma más larga en un texto usando programación dinámica. Probar con discursos de figuras históricas mexicanas. ¿Cuál es el palíndromo más largo que aparece naturalmente en el texto?
+
+## Algoritmos con Complejidad Avanzada
+
+**24.** Implementar el problema de la mochila 0/1 con programación dinámica. Una mochila de 15 kg debe llenarse con equipos de laboratorio con pesos y valores específicos; maximizar el valor total sin exceder el límite de peso.
+
+**25.** Implementar una máquina de estados finita (DFA) para validar: a) CURP (18 caracteres), b) RFC persona física (13 caracteres), c) RFC persona moral (12 caracteres). El autómata debe rechazar cualquier cadena que no cumpla el formato oficial de la SEP/SAT.
+
+**26.** Implementar la Transformada Rápida de Fourier (FFT) iterativa. Usarla para analizar frecuencias de una señal de audio muestreada a 44,100 Hz y detectar las frecuencias dominantes de un tono musical dado.
+
+**27.** Implementar un generador de números pseudoaleatorios por congruencia lineal: $X_{n+1} = (aX_n + c) \bmod m$. Verificar la calidad de la distribución con una prueba chi-cuadrada sobre 100,000 muestras generadas.
+
+---
+
+## Problemas adicionales
+
+> *Problemas de mayor complejidad para estudiantes avanzados.*
+
+**28.** Implementar un árbol de segmentos con actualización puntual y consulta de rango (suma, mínimo, máximo) en $O(\log n)$. Usarlo para responder 1,000,000 de consultas de suma sobre un arreglo de 100,000 calificaciones de estudiantes.
+
+**29.** Implementar el algoritmo de Tarjan para componentes fuertemente conexas. Aplicarlo para identificar grupos de páginas web que se enlazan mutuamente en un grafo de hipervínculos con 10,000 nodos.
+
+**30.** Implementar una caché LRU de tamaño $k$ usando tabla hash y lista doblemente enlazada con operaciones en $O(1)$. Simular acceso a 10,000 páginas web y calcular la tasa de aciertos para $k = 100, 500, 1000$.
+
+**31.** Resolver el TSP (viajante de comercio) para 15 ciudades de la República Mexicana usando: a) fuerza bruta, b) vecino más cercano, c) 2-opt de mejora local. Comparar calidad de soluciones y tiempo de cómputo de cada enfoque.
+
+**32.** Implementar el algoritmo de Aho-Corasick para búsqueda simultánea de múltiples patrones. Usarlo para detectar en un documento todas las apariciones de los nombres de los 32 estados de México en una sola pasada del texto.

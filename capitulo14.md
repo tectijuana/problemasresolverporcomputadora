@@ -1,107 +1,73 @@
+# Capítulo 14: Programación Orientada a Objetos y Patrones de Diseño
 
-## CAPÍTULO 14: PROGRAMACIÓN LÓGICA
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo incluye problemas que se pueden resolver utilizando programación lógica, particularmente con lenguajes como Prolog. Los problemas están diseñados para fomentar el pensamiento lógico, la declaración de hechos y reglas, y el uso de consultas para inferir nueva información.
+## Introducción
 
-1. **Árbol Genealógico Básico**: Define un árbol genealógico utilizando hechos y reglas. Escribe consultas para encontrar padres, abuelos y hermanos.
+La Programación Orientada a Objetos (POO) no es solo una forma de organizar código — es un modelo mental para mapear el mundo real en estructuras de software. Los patrones de diseño GoF (*Gang of Four*) son soluciones probadas a problemas recurrentes que los ingenieros de software han enfrentado durante décadas. Dominar POO y los 23 patrones GoF es la diferencia entre código que funciona y código que puede mantenerse, extenderse y reutilizarse. Este capítulo usa contextos reales del ecosistema mexicano: instituciones educativas, sistemas de salud, comercio electrónico y administración pública.
 
-2. **Detección de Parentesco**: Utilizando hechos y reglas, escribe un programa que determine si dos personas están relacionadas y de qué manera (por ejemplo, primos, tíos).
+## Clases, Objetos y Encapsulamiento
 
-3. **Programa de Listas de Miembros**: Escribe un programa que verifique si un elemento pertenece a una lista.
+**1.** Diseñar la clase `AlumnoTecNM` con atributos privados: CURP, matrícula, nombre, carrera y lista de calificaciones por materia. Implementar métodos para: calcular promedio general, determinar si está en riesgo escolar (promedio < 7.0 o más de 2 materias reprobadas), generar su kardex formateado y validar que el CURP tenga el formato oficial de la SEP.
 
-4. **Concatenación de Listas**: Implementa una regla para concatenar dos listas.
+**2.** Diseñar la clase `CuentaBancaria` con número de cuenta, CLABE interbancaria, titular y saldo. Implementar operaciones de depósito, retiro (con verificación de fondos), transferencia y generación de estado de cuenta mensual. El saldo nunca debe ser negativo y la CLABE debe tener exactamente 18 dígitos.
 
-5. **Encontrar la Longitud de una Lista**: Escribe una regla lógica que determine la longitud de una lista.
+**3.** Diseñar el sistema de nómina de una empresa: clase `Empleado` con RFC, NSS, sueldo bruto y tipo de contrato. Implementar el cálculo automático de: cuota IMSS trabajador (1.65%), INFONAVIT (5%), ISR según tabla vigente 2026, y sueldo neto. Incluir método para generar el recibo de nómina en formato de texto.
 
-6. **Números Fibonacci**: Implementa un programa que genere números de la secuencia de Fibonacci utilizando recursión.
+**4.** Implementar la clase `ExpedienteMedico` para un hospital público: paciente (nombre, CURP, tipo de sangre), diagnósticos con fecha, medicamentos prescritos con dosis y alergias conocidas. Asegurar que ningún medicamento prescrito pertenezca a la lista de alergias del paciente — lanzar excepción descriptiva si hay conflicto.
 
-7. **Verificación de Número Primo**: Escribe una regla que determine si un número dado es primo.
+**5.** Diseñar la clase `VehiculoSAT` con placas, número de serie (VIN), propietario (RFC), año-modelo, tenencia anual calculada según el valor del vehículo y las tarifas del estado de Baja California. Implementar el método `calcular_multas(dias_retraso)` para pagos vencidos de tenencia.
 
-8. **Ordenamiento de una Lista**: Implementa un algoritmo de ordenamiento (por ejemplo, ordenamiento de burbuja) utilizando programación lógica.
+## Herencia, Polimorfismo e Interfaces
 
-9. **Factorial de un Número**: Escribe un programa que calcule el factorial de un número utilizando recursión.
+**6.** Diseñar una jerarquía de clases para el sistema educativo mexicano: clase base `InstitucionEducativa` con nombre, clave de centro de trabajo (CCT) y municipio. Subclases: `Primaria`, `Secundaria`, `Preparatoria`, `TecNM`, `Universidad`. Cada subclase implementa `calcular_costo_semestre()` y `verificar_requisitos_ingreso(alumno)` con reglas distintas.
 
-10. **Búsqueda de Camino en un Grafo**: Implementa una regla para encontrar un camino entre dos nodos en un grafo dirigido.
+**7.** Diseñar una jerarquía de `Vehiculo`: subclases `Automovil`, `Motocicleta`, `Camion` y `Bicicleta`. Cada uno implementa `calcular_costo_verificacion()`, `requiere_tenencia()` y `emite_contaminantes()` de forma distinta según la ley de tránsito del Estado de México. Demostrar polimorfismo procesando una lista heterogénea de vehículos.
 
-11. **Resolver un Sudoku**: Escribe un programa que resuelva un puzzle de Sudoku usando lógica de restricciones.
+**8.** Diseñar el sistema de pagos de una plataforma de comercio electrónico mexicana. Clase base abstracta `MetodoPago` con método `procesar_pago(monto)`. Subclases concretas: `TarjetaCredito`, `SPEI`, `PayPal`, `OXXOPay`, `MercadoPago`. Cada una tiene su propia lógica de comisiones, tiempos de acreditación y manejo de errores.
 
-12. **N Reinas**: Implementa una solución para el problema de las N reinas en un tablero de ajedrez utilizando programación lógica.
+**9.** Implementar el patrón de interfaces con duck typing: definir las interfaces `Serializable` (métodos `to_json`, `from_json`), `Comparable` (método `compare_to`) y `Printable` (método `pretty_print`). Implementarlas en las clases `Alumno`, `Materia` y `Calificacion`. Demostrar que una función genérica puede operar sobre cualquier objeto que implemente `Comparable` sin saber su tipo concreto.
 
-13. **Generador de Anagramas**: Escribe un programa que genere todos los anagramas posibles de una palabra dada.
+## Patrones Creacionales
 
-14. **Árbol de Expresión**: Implementa un programa que evalúe una expresión matemática representada como un árbol binario.
+**10.** Implementar el patrón **Singleton** para un logger centralizado del sistema: solo puede existir una instancia que escriba a un archivo de log con timestamp, nivel de severidad y mensaje. Demostrar que dos módulos distintos obtienen la misma instancia aunque la soliciten por separado. Implementar también una versión thread-safe.
 
-15. **Verificación de Palíndromos**: Escribe una regla que verifique si una cadena de texto es un palíndromo.
+**11.** Implementar el patrón **Factory Method** para un sistema de generación de reportes del TecNM: la clase `ReporteFactory` decide qué tipo concreto de reporte crear (`ReportePDF`, `ReporteExcel`, `ReporteHTML`) según el parámetro recibido. Agregar un nuevo tipo de reporte no debe requerir modificar la factory existente.
 
-16. **Calculadora de Fechas**: Implementa un programa que determine si una fecha dada es válida y calcule la diferencia entre dos fechas.
+**12.** Implementar el patrón **Builder** para construir objetos `Curriculum` complejos paso a paso: datos personales, experiencia laboral (lista), educación (lista), habilidades técnicas, idiomas y referencias. El Builder valida que los campos obligatorios estén presentes antes de construir el objeto final.
 
-17. **Coloreado de Grafo**: Escribe un programa que determine si un grafo puede ser coloreado con un número dado de colores sin que dos nodos adyacentes tengan el mismo color.
+**13.** Implementar el patrón **Abstract Factory** para una aplicación que debe funcionar tanto en modo claro como oscuro, y tanto en español como en inglés: la factory abstracta crea botones, cuadros de texto y mensajes de error adaptados al tema y al idioma seleccionado.
 
-18. **Solución de Rompecabezas de Palabras Cruzadas**: Implementa un programa que resuelva un puzzle de palabras cruzadas basándose en un conjunto de pistas.
+## Patrones Estructurales
 
-19. **Resolver Ecuaciones Lineales Simples**: Escribe un programa que resuelva ecuaciones lineales simples utilizando programación lógica.
+**14.** Implementar el patrón **Adapter** para integrar tres APIs de clima distintas (OpenWeather, AccuWeather, SMN — Servicio Meteorológico Nacional) que tienen respuestas en formatos diferentes. El adaptador debe presentar una interfaz uniforme `obtener_clima(ciudad)` que devuelva siempre la misma estructura, independientemente de qué API se use.
 
-20. **Problema de los Misioneros y Caníbales**: Implementa una solución para este problema clásico utilizando lógica y recursión.
+**15.** Implementar el patrón **Decorator** para un sistema de café: clase base `Cafe` con método `costo()` y `descripcion()`. Decoradores: `Leche`, `Azucar`, `VainillaMexicana`, `Cinnamon`, `ExtraShot`. Los decoradores se pueden combinar en cualquier orden y el costo final se calcula acumulativamente.
 
-21. **Asignación de Tareas**: Escribe un programa que asigne tareas a trabajadores de manera que se minimicen los conflictos y se maximice la eficiencia.
+**16.** Implementar el patrón **Facade** para simplificar el proceso de registro de un nuevo alumno en el TecNM: internamente coordina verificación de documentos, validación de CURP con RENAPO, asignación de matrícula, creación de cuenta de correo institucional y envío de bienvenida. El usuario de la fachada solo llama `registrar_alumno(datos)`.
 
-22. **Juego de Lógica de Luces**: Implementa una solución para un juego en el que se deben encender o apagar luces en un tablero siguiendo ciertas reglas.
+**17.** Implementar el patrón **Composite** para representar el organigrama de una dependencia del gobierno federal: cada nodo puede ser una persona (hoja) o un departamento (rama que contiene más nodos). Implementar operaciones que funcionen recursivamente: calcular la nómina total de un departamento y contar el total de empleados a cualquier nivel.
 
-23. **Cálculo de la Potencia**: Escribe un programa que calcule la potencia de un número utilizando multiplicaciones sucesivas.
+## Patrones de Comportamiento
 
-24. **Árbol Binario de Búsqueda**: Implementa un programa que inserte y busque elementos en un árbol binario de búsqueda.
+**18.** Implementar el patrón **Observer** para un sistema de alertas sísmicas: el `CENAPED` (observado) notifica a múltiples suscriptores (aplicaciones móviles, bocinas, semáforos inteligentes) cuando detecta un sismo mayor a 5.0 grados. Cada suscriptor reacciona de forma diferente a la misma notificación.
 
-25. **Juego de los Caballos (Knight's Tour)**: Escribe un programa que resuelva el problema del recorrido del caballo en un tablero de ajedrez.
+**19.** Implementar el patrón **Strategy** para el cálculo de rutas en una aplicación de transporte público de CDMX: el contexto acepta diferentes estrategias de ruta (`RutaMasCorta`, `RutaMasRapida`, `RutaMasBarata`, `RutaMenosTransbordos`) y puede cambiar de estrategia en tiempo de ejecución.
 
-26. **Resolver Juegos de Lógica (Ej. Kakuro)**: Implementa un solucionador para puzzles de lógica como Kakuro utilizando programación lógica.
+**20.** Implementar el patrón **Command** para un editor de texto con historial ilimitado de deshacer/rehacer. Cada operación (insertar texto, eliminar, cambiar formato, mover párrafo) se encapsula como un objeto Command con métodos `execute()` y `undo()`. El historial persiste en disco para recuperarse tras un cierre inesperado.
 
-27. **Validación de Expresiones de Corchetes**: Escribe un programa que valide si una expresión con corchetes está correctamente balanceada.
+**21.** Implementar el patrón **Iterator** para una clase `PadronElectoral` que puede contener millones de registros en disco. El iterador debe permitir recorrer los registros uno a uno sin cargarlos todos en memoria, y soportar filtros lazy: `filtrar_por_estado`, `filtrar_por_seccion` y `filtrar_por_rango_edad`.
 
-28. **Determinación de Parentesco Complejo**: Escribe un programa que determine relaciones complejas (por ejemplo, sobrino-nieto) en un árbol genealógico.
+**22.** Implementar el patrón **Chain of Responsibility** para el sistema de aprobación de gastos de una empresa: montos menores a \$5,000 los aprueba el supervisor, hasta \$50,000 el gerente, hasta \$500,000 el director, mayores requieren el consejo de administración. Si un nivel no puede aprobar, pasa automáticamente al siguiente.
 
-29. **Simulación de Sistema de Tráfico**: Implementa un modelo de sistema de tráfico que controle el flujo de vehículos en un cruce utilizando semáforos.
+---
 
-30. **Optimización de Horarios Escolares**: Escribe un programa que asigne clases a horarios específicos de manera que se minimicen los conflictos de tiempo para estudiantes y profesores.
+## Problemas adicionales
 
-31. **Resolver Problema de Mochila**: Implementa una solución para el problema de la mochila utilizando programación lógica.
+> *Proyectos integradores que combinan múltiples patrones.*
 
-32. **Planificación de Proyectos**: Escribe un programa que genere un plan de proyecto basado en dependencias entre tareas y recursos disponibles.
+**23.** Diseñar e implementar un sistema completo de biblioteca digital del TecNM usando al menos 5 patrones GoF. El sistema debe manejar libros físicos y digitales, préstamos, reservas, multas por retraso y notificaciones por correo. Documentar qué patrón resuelve qué problema específico.
 
-33. **Verificación de Contraseñas Seguras**: Implementa un programa que verifique si una contraseña cumple con ciertos criterios de seguridad.
+**24.** Implementar el patrón **State** para modelar el ciclo de vida de una orden de compra en una plataforma de comercio electrónico mexicana: `Pendiente → Confirmada → Pagada → Empacada → Enviada → Entregada` (o `Cancelada` desde cualquier estado válido). Cada estado tiene transiciones válidas e inválidas y acciones al entrar/salir.
 
-34. **Simulación de Ecosistema**: Escribe un programa que modele la interacción de diferentes especies en un ecosistema utilizando reglas lógicas.
-
-35. **Optimización de Ruta de Entrega**: Implementa un programa que encuentre la ruta más corta para un vehículo de entrega que debe visitar varios puntos.
-
-36. **Modelo de Mercado Económico**: Escribe un programa que simule un mercado económico simple con compradores y vendedores siguiendo ciertas reglas.
-
-37. **Generador de Puzzles de Lógica**: Implementa un programa que genere puzzles de lógica basados en reglas predefinidas.
-
-38. **Reconocimiento de Patrones**: Escribe un programa que reconozca patrones en una secuencia de datos utilizando reglas de coincidencia.
-
-39. **Simulación de Juegos de Cartas**: Implementa un programa que simule juegos de cartas como el póker, permitiendo la verificación de reglas y la determinación de ganadores.
-
-40. **Asignación de Recursos en la Nube**: Escribe un programa que asigne recursos computacionales en un entorno de nube de manera óptima utilizando programación lógica.
-
-41. **Simulación de Elecciones**: Implementa un modelo de simulación de elecciones basado en reglas de votación y preferencias de los votantes.
-
-42. **Modelo de Interacción Social**: Escribe un programa que simule la interacción social en una comunidad utilizando reglas para amistad, conflicto y cooperación.
-
-43. **Evaluación de Hipótesis Científicas**: Implementa un programa que evalúe hipótesis científicas basadas en datos experimentales y reglas lógicas.
-
-44. **Optimización de Inventario**: Escribe un programa que gestione el inventario de un almacén de manera eficiente utilizando reglas de reposición y demanda.
-
-45. **Modelo de Transporte Público**: Implementa un modelo de transporte público que simule el flujo de pasajeros y la optimización de rutas de autobús o tren.
-
-46. **Sistema de Diagnóstico Médico**: Escribe un programa que utilice reglas lógicas para diagnosticar enfermedades basándose en síntomas.
-
-47. **Generación de Música Algorítmica**: Implementa un programa que genere melodías basadas en reglas de composición musical.
-
-48. **Verificación de Teoremas Matemáticos**: Escribe un programa que verifique la validez de teoremas matemáticos simples utilizando programación lógica.
-
-49. **Modelo de Clima**: Implementa un modelo que simule patrones climáticos y realice predicciones basadas en datos históricos y reglas de cambio climático.
-
-50. **Simulación de Mercado de Valores**: Escribe un programa que simule la compra y venta de acciones en un mercado de valores utilizando reglas de oferta y demanda.
-
-
-Estos problemas están diseñados para aplicar conceptos de programación lógica y desarrollar habilidades en la creación y manipulación de hechos, reglas y consultas lógicas para resolver problemas complejos.
+**25.** Diseñar un sistema de validación de documentos de identidad mexicanos usando el patrón **Template Method**: el algoritmo general es `cargar → extraer_campos → validar_formato → verificar_checksum → resultado`. Cada tipo de documento (CURP, RFC, INE, pasaporte) implementa los pasos concretos de extracción y validación.

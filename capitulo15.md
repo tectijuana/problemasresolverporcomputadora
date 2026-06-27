@@ -1,109 +1,65 @@
+# Capítulo 15: Bases de Datos y Persistencia
 
-## CAPÍTULO 15: PROGRAMACIÓN ORIENTADA A OBJETOS (POO)
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo incluye problemas diseñados para ser resueltos utilizando conceptos de programación orientada a objetos. Estos problemas fomentan el uso de clases, objetos, herencia, encapsulación, polimorfismo y otros principios fundamentales de POO.
+## Introducción
 
-1. **Clase de Persona**: Crea una clase `Persona` con atributos como nombre, edad y género. Incluye métodos para mostrar los detalles de la persona y un método para calcular el año de nacimiento basado en la edad.
+Toda aplicación que vale la pena guarda datos. Saber diseñar esquemas, escribir consultas eficientes y elegir el motor de persistencia correcto es una habilidad que distingue a los desarrolladores junior de los senior. Este capítulo cubre SQL desde los fundamentos hasta las consultas avanzadas, las bases de datos NoSQL para casos donde SQL no es la mejor opción, el diseño de esquemas relacionales bien normalizados y las bases de datos vectoriales que potencian las aplicaciones de IA modernas. Los ejemplos usan contextos reales mexicanos: padrón de contribuyentes, sistemas escolares, salud pública y comercio electrónico.
 
-2. **Sistema de Gestión de Estudiantes**: Implementa clases para `Estudiante`, `Profesor` y `Curso`. Los estudiantes pueden inscribirse en cursos, y los profesores pueden impartir cursos. Incluye métodos para mostrar los detalles de los estudiantes inscritos y los cursos impartidos por los profesores.
+## SQL Básico
 
-3. **Sistema de Inventario de Productos**: Crea una clase `Producto` con atributos como nombre, precio y cantidad en inventario. Implementa métodos para agregar y remover stock y para mostrar los detalles del producto.
+**1.** Crear la base de datos `escuela_tecnm` con las tablas: `alumno` (matrícula, nombre, CURP, carrera, semestre, promedio), `materia` (clave, nombre, créditos, horas_semana), `inscripcion` (alumno_id, materia_id, semestre, calificacion). Insertar datos de prueba: 200 alumnos, 30 materias y 1,500 inscripciones. Escribir consultas para: a) top 10 alumnos por promedio por carrera, b) materias con más reprobados, c) alumnos con carga completa (5 materias o más).
 
-4. **Jerarquía de Animales**: Implementa una jerarquía de clases para `Animal`, `Mamífero`, `Ave`, y `Reptil`. Define métodos comunes como `comer()` y `moverse()`, y sobrescribe estos métodos en las subclases con comportamientos específicos.
+**2.** Diseñar la base de datos `inventario_farmacia` con productos (clave, nombre, principio_activo, presentación, precio, stock), proveedores (RFC, razón_social, contacto) y pedidos. Escribir consultas para: productos con stock menor al mínimo, costo total del inventario por categoría, proveedor con mayor volumen de ventas en el último trimestre.
 
-5. **Simulación de Banco**: Crea clases para `CuentaBancaria`, `CuentaCorriente`, y `CuentaDeAhorros`. Implementa funcionalidades como depositar, retirar y transferir fondos entre cuentas.
+**3.** Crear la tabla `transacciones_spei` con: CLABE origen, CLABE destino, monto, fecha_hora, concepto y estatus. Con 1,000,000 de registros simulados, escribir consultas para: total transferido por día de la semana, hora pico de mayor actividad, usuarios con más de 50 transacciones en un día (posible fraude).
 
-6. **Sistema de Biblioteca**: Implementa clases para `Libro`, `Autor`, y `Usuario`. Los usuarios pueden tomar prestados libros, y se debe mantener un registro de los libros prestados y disponibles.
+**4.** Modelar el sistema de citas médicas del IMSS: pacientes (NSS, nombre, fecha_nacimiento, tipo_sangre), médicos (empleado_id, especialidad, CEDULA_profesional), consultorios (número, hospital, piso) y citas (paciente_id, médico_id, consultorio_id, fecha_hora, diagnóstico). Escribir consultas para encontrar médicos sin citas disponibles en los próximos 7 días y pacientes que no han asistido a consulta en más de un año.
 
-7. **Gestión de Vehículos**: Crea una clase base `Vehículo` y subclases como `Coche`, `Motocicleta`, y `Bicicleta`. Incluye atributos comunes como velocidad y métodos para acelerar y frenar.
+## SQL Intermedio
 
-8. **Sistema de Reservas de Vuelos**: Crea clases para `Vuelo`, `Pasajero`, y `Reserva`. Los pasajeros pueden reservar vuelos, y cada vuelo tiene una lista de pasajeros.
+**5.** Escribir consultas con `JOIN` múltiples para el sistema `escuela_tecnm`: a) nombre del alumno, materia y calificación de todos los reprobados en el semestre actual, b) profesores que imparten más de 3 materias simultáneamente, c) salones con más del 90% de ocupación. Usar `INNER JOIN`, `LEFT JOIN` y `FULL OUTER JOIN` según corresponda.
 
-9. **Tienda de Electrónica**: Implementa una clase `ProductoElectrónico` con subclases como `Televisor`, `Computadora`, y `TeléfonoMóvil`. Incluye atributos específicos de cada tipo de producto y métodos para mostrar sus características.
+**6.** Implementar consultas con funciones de ventana (`WINDOW FUNCTIONS`): a) ranking de alumnos por promedio dentro de cada carrera usando `RANK()`, b) promedio móvil de calificaciones de cada alumno a lo largo de los semestres usando `AVG() OVER`, c) diferencia de calificación de cada alumno respecto al semestre anterior usando `LAG()`.
 
-10. **Sistema de Gestión de Personal**: Crea clases para `Empleado`, `Gerente`, y `Ingeniero`. Implementa un método `calcularSalario()` que se sobrescribe en cada subclase para calcular salarios específicos.
+**7.** Optimizar el rendimiento de consultas: crear índices apropiados para la base de datos `inventario_farmacia`, analizar el plan de ejecución (`EXPLAIN ANALYZE`) antes y después de indexar, y documentar la mejora en tiempo de respuesta para consultas sobre 1,000,000 de registros.
 
-11. **Simulación de Parque Zoológico**: Implementa una jerarquía de clases para diferentes tipos de animales en un zoológico. Incluye métodos para alimentar a los animales y mostrar información sobre ellos.
+**8.** Implementar transacciones ACID para el sistema bancario: transferencia SPEI que debe actualizar dos cuentas atómicamente. Si la cuenta origen no tiene fondos suficientes o la CLABE destino no existe, revertir toda la operación. Implementar manejo de deadlocks con reintentos automáticos.
 
-12. **Juego de Cartas**: Crea una clase `Carta` y una clase `Baraja` que puede mezclar y repartir cartas. Implementa una clase `Jugador` que puede recibir y mostrar sus cartas.
+**9.** Crear vistas materializadas y procedimientos almacenados para el sistema escolar: vista `reporte_semestral` que consolida calificaciones y promedios, procedimiento `calcular_becas()` que identifica candidatos a beca académica según reglamento, y trigger `actualizar_promedio` que recalcula el promedio del alumno cada vez que se inserta una calificación.
 
-13. **Sistema de Gestión de Hospital**: Crea clases para `Paciente`, `Doctor`, y `Enfermera`. Incluye métodos para asignar doctores a pacientes y registrar el tratamiento recibido.
+## SQL Avanzado
 
-14. **Sistema de Facturación**: Implementa clases para `Factura`, `Cliente`, y `Producto`. Los clientes pueden tener múltiples facturas, y cada factura puede tener múltiples productos.
+**10.** Implementar consultas recursivas con `WITH RECURSIVE` para: a) encontrar todos los subordinados directos e indirectos de un director en el organigrama de la SEP, b) calcular el costo total de una lista de materiales (BOM) con múltiples niveles de componentes para manufactura maquiladora.
 
-15. **Aplicación de Redes Sociales**: Crea clases para `Usuario`, `Publicación`, y `Comentario`. Implementa métodos para agregar amigos, hacer publicaciones y comentarios.
+**11.** Diseñar e implementar particionado de tablas para `transacciones_spei`: particionar por mes del año. Verificar que las consultas de un rango de fechas usen partition pruning y no escaneen particiones innecesarias. Medir la mejora en tiempo de respuesta.
 
-16. **Sistema de Reserva de Hotel**: Implementa clases para `Hotel`, `Habitación`, y `Reserva`. Los clientes pueden reservar habitaciones y el sistema debe mantener un registro de las habitaciones ocupadas y disponibles.
+**12.** Implementar búsqueda de texto completo (*full-text search*) sobre una base de datos de 500,000 artículos del Diario Oficial de la Federación (DOF). Comparar la velocidad de `LIKE '%palabra%'` vs. índices de texto completo para búsquedas de términos jurídicos específicos.
 
-17. **Simulación de Tienda en Línea**: Crea clases para `CarritoDeCompras`, `Producto`, y `Usuario`. Implementa métodos para agregar productos al carrito y calcular el total de la compra.
+## Bases de Datos NoSQL
 
-18. **Sistema de Notificación**: Implementa una clase base `Notificación` y subclases como `Email`, `SMS`, y `PushNotification`. Define un método `enviar()` que se sobrescribe en cada subclase.
+**13.** Modelar el catálogo de productos de una tienda en línea usando MongoDB (o equivalente documental). Cada producto tiene atributos variables según su categoría (electrónica, ropa, alimentos). Implementar consultas de: búsqueda por atributos específicos de categoría, productos con precio entre rangos, y actualización masiva de precios con factor de incremento.
 
-19. **Juego de Rol (RPG)**: Crea una jerarquía de clases para personajes de un juego de rol, incluyendo `Guerrero`, `Mago`, y `Arquero`. Implementa métodos para ataques y habilidades especiales.
+**14.** Implementar un sistema de sesiones de usuario usando Redis: almacenar token JWT, datos de sesión y preferencias del usuario con TTL de 24 horas. Implementar lista de tokens revocados (blacklist) para logout seguro. Medir la latencia de lectura/escritura vs. una base de datos SQL equivalente.
 
-20. **Simulación de Restaurante**: Crea clases para `Mesero`, `Cocinero`, `Cliente`, y `Orden`. Los clientes pueden hacer órdenes, los meseros las toman, y los cocineros las preparan.
+**15.** Diseñar un sistema de métricas de aplicación usando una base de datos de series de tiempo (InfluxDB o TimescaleDB): registrar CPU, memoria, latencia de API y errores cada 10 segundos. Implementar consultas para: percentil 99 de latencia por endpoint en la última hora, detección de anomalías por desviación estándar, y downsampling automático de datos de más de 30 días.
 
-21. **Sistema de Gestión de Proyectos**: Implementa clases para `Proyecto`, `Tarea`, y `Equipo`. Los proyectos pueden tener múltiples tareas y equipos asignados.
+**16.** Implementar un grafo de relaciones sociales usando Neo4j o equivalente: usuarios, seguidores, publicaciones y likes. Consultas que son costosas en SQL pero naturales en grafos: amigos en común, grado de separación entre dos usuarios, usuarios influenciadores (mayor PageRank) dentro de una comunidad.
 
-22. **Sistema de Gestión de Eventos**: Crea clases para `Evento`, `Invitado`, y `Lugar`. Los eventos tienen una lista de invitados y se llevan a cabo en diferentes lugares.
+## Diseño de Esquemas y Modelado
 
-23. **Sistema de Control de Calidad**: Implementa clases para `Producto`, `Inspector`, y `ReporteDeCalidad`. Los inspectores pueden generar reportes de calidad para los productos.
+**17.** Tomar el esquema de la base de datos `clinica_imss` (pacientes, médicos, consultas, medicamentos, hospitales) y normalizarlo hasta la Tercera Forma Normal (3FN). Documentar cada paso: identificar dependencias funcionales, eliminar redundancias y justificar por qué cada tabla quedó en 3FN.
 
-24. **Aplicación de Mensajería**: Crea clases para `Usuario`, `Mensaje`, y `Conversación`. Los usuarios pueden enviar y recibir mensajes, y las conversaciones deben ser almacenadas.
+**18.** Diseñar el esquema de un sistema de e-commerce mexicano completo con: usuarios, productos, categorías, inventario por almacén, órdenes, ítems de orden, pagos (múltiples métodos), envíos (con tracking), devoluciones y reseñas. El esquema debe soportar múltiples monedas, múltiples tiendas y facturación electrónica CFDI.
 
-25. **Sistema de Gestión de Recursos Humanos**: Implementa clases para `Empleado`, `Departamento`, y `Evaluación`. Incluye métodos para evaluar empleados y asignarlos a departamentos.
+**19.** Diseñar e implementar una estrategia de migración de datos: el sistema de nómina de una empresa tiene 20 años de datos en un esquema Legacy (tabla plana de 80 columnas). Migrar a un esquema normalizado moderno sin pérdida de información, manteniendo el sistema Legacy activo durante la migración (migración en caliente).
 
-26. **Simulación de Supermercado**: Crea clases para `Cliente`, `CarritoDeCompras`, `Producto`, y `CajaRegistradora`. Los clientes pueden agregar productos al carrito y pagar en la caja.
+---
 
-27. **Sistema de Control de Acceso**: Implementa clases para `Usuario`, `TarjetaDeAcceso`, y `Puerta`. Los usuarios deben usar tarjetas de acceso para abrir puertas.
+## Problemas adicionales
 
-28. **Aplicación de Control de Tareas**: Crea clases para `Tarea`, `Etiqueta`, y `Usuario`. Los usuarios pueden crear tareas y asignar etiquetas para organizarlas.
+**20.** Implementar una base de datos vectorial (pgvector o Chroma) para búsqueda semántica sobre el catálogo de cursos del TecNM: convertir las descripciones de cada curso a embeddings, y dado el texto de perfil de un estudiante, encontrar los 5 cursos más relevantes por similitud semántica. Comparar con búsqueda por palabras clave.
 
-29. **Sistema de Gestión de Alquiler de Vehículos**: Implementa clases para `Vehículo`, `Cliente`, y `ContratoDeAlquiler`. Los clientes pueden alquilar vehículos y firmar contratos de alquiler.
+**21.** Diseñar una arquitectura CQRS (Command Query Responsibility Segregation) para el sistema de reservaciones del aeropuerto de Tijuana: lado escritura con base de datos transaccional normalizada, lado lectura con base de datos desnormalizada optimizada para consultas. Implementar la sincronización entre ambos lados mediante eventos.
 
-30. **Simulación de Cajero Automático (ATM)**: Crea clases para `CuentaBancaria`, `TarjetaDeCrédito`, y `CajeroAutomático`. Los usuarios pueden realizar operaciones bancarias como retirar dinero y consultar saldos.
-
-31. **Sistema de Gestión de Biblioteca Digital**: Implementa clases para `LibroDigital`, `Usuario`, y `Prestamo`. Los usuarios pueden pedir prestados libros digitales y devolverlos.
-
-32. **Juego de Estrategia**: Crea una jerarquía de clases para unidades de un juego de estrategia, incluyendo `Soldado`, `Tanque`, y `Avión`. Define métodos para atacar y defender.
-
-33. **Simulación de Granja**: Implementa clases para `Granja`, `Animal`, `Cultivo`, y `Granjero`. Los granjeros pueden cultivar plantas y criar animales.
-
-34. **Sistema de Gestión de Transporte Público**: Crea clases para `Autobús`, `Conductor`, y `Ruta`. Los conductores pueden ser asignados a rutas específicas.
-
-35. **Aplicación de Entrenamiento Físico**: Implementa clases para `Ejercicio`, `Rutina`, y `Usuario`. Los usuarios pueden seguir rutinas de entrenamiento y registrar su progreso.
-
-36. **Sistema de Gestión de Conferencias**: Crea clases para `Conferencia`, `Ponente`, y `Asistente`. Las conferencias tienen ponentes y asistentes registrados.
-
-37. **Sistema de Gestión de Inmuebles**: Implementa clases para `Inmueble`, `Propietario`, y `Inquilino`. Los propietarios pueden alquilar inmuebles a inquilinos.
-
-38. **Simulación de Tren**: Crea clases para `Tren`, `Vagón`, `Pasajero`, y `Estación`. Los pasajeros pueden abordar trenes en estaciones específicas.
-
-39. **Sistema de Gestión de Contenido**: Implementa clases para `Artículo`, `Categoría`, y `Autor`. Los autores pueden crear artículos que se clasifican en categorías.
-
-40. **Aplicación de Fotografía**: Crea clases para `Fotografía`, `Álbum`, y `Usuario`. Los usuarios pueden subir fotos y organizarlas en álbumes.
-
-41. **Sistema de Gestión de Reservas de Restaurantes**: Implementa clases para `Restaurante`, `Mesa`, `Reserva`, y `Cliente`. Los clientes pueden reservar mesas en restaurantes.
-
-42. **Simulación de Ciudad**: Crea clases para `Ciudad`, `Edificio`, `Persona`, y `Vehículo`. Las personas y los vehículos pueden interactuar dentro de la ciudad.
-
-43. **Sistema de Gestión de Clínicas Veterinarias**: Implementa clases para `Mascota`, `Veterinario`, y `Cita`. Las mascotas pueden ser tratadas por veterinarios en citas programadas.
-
-44. **Aplicación de Gestión de Finanzas Personales**: C
-
-rea clases para `Transacción`, `Categoría`, y `Usuario`. Los usuarios pueden registrar ingresos y gastos y categorizarlos.
-
-45. **Sistema de Gestión de Parques Nacionales**: Implementa clases para `Parque`, `Guía`, `Visitante`, y `Recorrido`. Los visitantes pueden realizar recorridos guiados en los parques.
-
-46. **Juego de Aventura**: Crea una jerarquía de clases para `Personaje`, `Monstruo`, `Arma`, y `Tesoro`. Los personajes pueden luchar contra monstruos y recolectar tesoros.
-
-47. **Sistema de Gestión de Seguros**: Implementa clases para `Poliza`, `Cliente`, y `AgenteDeSeguros`. Los clientes pueden comprar pólizas y realizar reclamaciones.
-
-48. **Aplicación de Música en Streaming**: Crea clases para `Canción`, `Álbum`, `Artista`, y `Usuario`. Los usuarios pueden crear listas de reproducción y escuchar canciones.
-
-49. **Simulación de Juegos Olímpicos**: Implementa clases para `Deporte`, `Atleta`, `Competencia`, y `Medalla`. Los atletas pueden participar en competencias y ganar medallas.
-
-50. **Sistema de Gestión de Eventos Deportivos**: Crea clases para `EventoDeportivo`, `Equipo`, `Jugador`, y `Entrenador`. Los equipos y jugadores pueden participar en eventos deportivos y ser entrenados.
-
-
-Estos problemas están diseñados para aplicar y reforzar conceptos de programación orientada a objetos, proporcionando oportunidades para trabajar con clases, objetos, herencia, polimorfismo, encapsulación y otros principios fundamentales de POO en diferentes contextos y aplicaciones.
+**22.** Implementar *database sharding* horizontal para la base de datos de clientes de una fintech mexicana con 10,000,000 de usuarios: distribuir por hash del RFC entre 4 shards. Implementar consultas que afectan múltiples shards y manejo de transacciones distribuidas con protocolo de dos fases (2PC).

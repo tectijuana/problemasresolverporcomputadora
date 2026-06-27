@@ -1,84 +1,63 @@
+# Capítulo 13: Paradigmas de Programación
 
-## CAPÍTULO 13: JUEGOS DE ALGORITMOS CON PROGRAMACIÓN FUNCIONAL
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo se centra en problemas y juegos de algoritmos que se pueden resolver utilizando técnicas de programación funcional. Estos problemas están diseñados para fomentar el pensamiento funcional y la utilización de conceptos como funciones puras, inmutabilidad, y uso extensivo de funciones de orden superior.
+## Introducción
 
-1. **Sumar Números de una Lista**: Implementa una función que reciba una lista de números y devuelva la suma de todos los números usando recursión en lugar de bucles.
-   
-2. **Filtro de Números Primos**: Escribe una función que filtre los números primos de una lista de números utilizando funciones de orden superior como `filter`.
+Un paradigma de programación es una forma de pensar sobre los problemas y de estructurar las soluciones. Los paradigmas imperativos, orientados a objetos, funcionales, lógicos y declarativos no son lenguajes: son filosofías. Los mejores programadores de 2026 no son "programadores de Python" o "programadores de JavaScript" — son programadores que saben elegir el paradigma correcto para cada problema. Este capítulo explora cuatro paradigmas fundamentales con problemas concretos que muestran cuándo y por qué cada uno brilla.
 
-3. **Mapeo de Cuadrados**: Crea una función que aplique una función de mapeo para elevar al cuadrado cada número en una lista.
+## Programación Funcional
 
-4. **Palíndromo Recursivo**: Implementa una función recursiva que verifique si una cadena de texto es un palíndromo.
+**1.** Implementar una función `suma_lista` que calcule la suma de una lista de números usando recursión pura, sin bucles ni variables mutables. Luego implementarla usando `reduce`. Comparar la legibilidad y el rendimiento de ambas versiones para listas de 10, 1,000 y 100,000 elementos.
 
-5. **Conteo de Elementos en una Lista**: Escribe una función que cuente el número de elementos en una lista sin usar una variable mutable.
+**2.** Dado un padrón electoral simulado de 1,000,000 de registros con campos nombre, estado, edad y partido preferido, usar solo `map`, `filter` y `reduce` para calcular: a) la edad promedio de votantes mayores de 30 en Baja California, b) el partido con más simpatizantes menores de 25 años.
 
-6. **Generador de Fibonacci**: Implementa una función para generar la secuencia de Fibonacci usando recursión y memoización para optimizar.
+**3.** Implementar una función de composición `compose(f, g)` que devuelva una nueva función $h(x) = f(g(x))$. Usarla para construir un pipeline de transformación de texto: eliminar acentos → convertir a minúsculas → eliminar signos → dividir en palabras → contar frecuencias.
 
-7. **Factorial con Función de Reducción**: Crea una función que calcule el factorial de un número utilizando la función de reducción (`reduce`).
+**4.** Implementar memoización genérica como decorador o función de orden superior. Aplicarla a la función de Fibonacci recursiva y medir la aceleración para `fib(40)` con y sin memoización.
 
-8. **Encontrar el Máximo**: Escribe una función que encuentre el número máximo en una lista usando recursión.
+**5.** Implementar una función `flat_map` (también llamada `bind` o `chain`) que aplique una función que devuelve una lista a cada elemento de una lista y aplane el resultado. Usarla para generar todos los pares de números $(a, b)$ con $a \in \{1..5\}$, $b \in \{1..5\}$, $a < b$.
 
-9. **Ordenamiento Rápido (Quicksort)**: Implementa el algoritmo de ordenamiento rápido usando recursión y comprensión de listas.
+**6.** Implementar un sistema de procesamiento de datos de ventas de una tienda OXXO usando solo funciones puras: leer CSV de ventas diarias → filtrar ventas con descuento → calcular impuesto IVA → agrupar por categoría → ordenar por total. Ninguna función debe modificar su entrada.
 
-10. **Filtro de Números Pares**: Escribe una función que filtre todos los números pares de una lista utilizando `filter`.
+**7.** Implementar la función `unfold`: dado un valor inicial y una función de paso, generar una secuencia perezosa. Usarla para generar la secuencia de números de Fibonacci, la de números primos y la de colatz para un número dado.
 
-11. **Sumar Números Pares**: Implementa una función que sume todos los números pares de una lista utilizando `filter` y `reduce`.
+**8.** Construir un evaluador de expresiones matemáticas usando funciones puras y recursión. La entrada es una cadena como `"3 + 4 * (2 - 1)"` y la salida el resultado numérico. Sin variables globales ni efectos secundarios.
 
-12. **Composición de Funciones**: Crea una función que componga dos funciones dadas y aplícalas a un valor.
+## Programación Lógica y Declarativa
 
-13. **Cadena de Funciones**: Implementa una función que aplique una lista de funciones secuencialmente a un valor inicial.
+**9.** Implementar en Python o cualquier lenguaje imperativo un motor de inferencia simple basado en reglas de la forma `si A y B entonces C`. Cargar reglas de elegibilidad para el programa Sembrando Vida de la SADER (criterios de superficie, cultivo y ubicación) e inferir si un productor dado es elegible.
 
-14. **Ordenamiento por Burbuja Funcional**: Escribe una versión del algoritmo de ordenamiento por burbuja utilizando recursión en lugar de bucles.
+**10.** Representar el árbol genealógico de una familia mexicana de 4 generaciones usando hechos y reglas. Implementar consultas: ¿quién es el abuelo paterno de X? ¿Cuáles primos tienen más de 5 años de diferencia? ¿Quiénes son los hermanos de X?
 
-15. **Aplanar Lista**: Implementa una función recursiva que aplane una lista de listas en una sola lista plana.
+**11.** Implementar el problema de coloración de mapas como un problema de satisfacción de restricciones (CSP): dado el mapa de los estados de la República Mexicana y sus fronteras, colorear el mapa con 4 colores de manera que ningún par de estados fronterizos tenga el mismo color. Usar backtracking con propagación de restricciones.
 
-16. **Suma de Dígitos**: Crea una función que calcule la suma de los dígitos de un número usando recursión.
+**12.** Implementar un solucionador de Sudoku usando CSP con backtracking y las tres reglas de propagación: nodo-consistencia, arco-consistencia y consistencia de camino. Medir cuántas posiciones se resuelven por propagación pura (sin backtracking).
 
-17. **Juego de Numeros Perfectos**: Implementa una función que determine si un número es perfecto (es igual a la suma de sus divisores propios) usando funciones de orden superior.
+**13.** Construir un sistema de consultas tipo SQL sobre una lista de diccionarios en Python, implementando: `SELECT` (proyección), `WHERE` (filtro), `ORDER BY`, `GROUP BY` y `JOIN` entre dos colecciones. Probar con una base de datos de alumnos del TecNM y sus calificaciones.
 
-18. **Evaluar Expresiones Matemáticas**: Escribe un evaluador de expresiones matemáticas simples utilizando programación funcional.
+## Metaprogramación y Aspectos
 
-19. **Encontrar Elementos Duplicados**: Implementa una función que encuentre todos los elementos duplicados en una lista utilizando `filter` y `map`.
+**14.** Implementar un sistema de decoradores que agreguen comportamiento transversal a funciones: a) `@log` que registra cada llamada con sus argumentos y resultado, b) `@cache` que memoriza resultados, c) `@retry(n)` que reintenta $n$ veces si ocurre una excepción, d) `@timeout(s)` que cancela la ejecución si tarda más de $s$ segundos.
 
-20. **Juego de Ordenación Aleatoria**: Escribe una función que genere una lista de números aleatorios y los ordene usando el algoritmo de ordenamiento rápido.
+**15.** Implementar un sistema de serialización automática: dada una clase cualquiera, generar automáticamente los métodos `to_json()`, `from_json()`, `to_csv()` y `__repr__()` mediante inspección de los atributos de la clase en tiempo de ejecución.
 
-21. **Calculadora Polaca Inversa (RPN)**: Implementa un evaluador de expresiones en notación polaca inversa utilizando programación funcional.
+**16.** Construir un mini-ORM (mapeador objeto-relacional) que permita definir clases Python y automáticamente: crear la tabla SQL correspondiente, generar métodos `save()`, `find_by_id()`, `find_all()` y `delete()`. Probar con las clases `Alumno`, `Materia` y `Inscripcion`.
 
-22. **Árbol Binario con Funciones de Orden Superior**: Crea un árbol binario de búsqueda y realiza operaciones de búsqueda e inserción utilizando funciones de orden superior.
+**17.** Implementar un sistema de validación declarativa: decorar los atributos de una clase con restricciones (`@rango(0,100)`, `@no_vacio`, `@formato_curp`, `@positivo`) y que el sistema valide automáticamente al asignar valores. Cualquier violación lanza una excepción descriptiva.
 
-23. **Generador de Números Aleatorios**: Escribe una función para generar una secuencia de números aleatorios utilizando un generador de números pseudoaleatorios basado en una semilla.
+**18.** Construir un generador de código que, dado un esquema JSON que describe una API REST (rutas, métodos, parámetros, respuestas), genere automáticamente el código boilerplate del servidor en Python/Flask y el cliente en JavaScript.
 
-24. **Aplicación Parcial**: Implementa una función de suma parcial que acepta un número y devuelve una función que acepta otro número para sumarlos.
+---
 
-25. **Juego de Torres de Hanoi Funcional**: Implementa el juego de las Torres de Hanoi utilizando recursión y funciones puras.
+## Problemas adicionales
 
-26. **Generador de Secuencias**: Crea un generador de secuencias que, dado un valor inicial y una función, genere una secuencia infinita.
+> *Problemas integradores que combinan múltiples paradigmas.*
 
-27. **Transformación de Cadenas**: Escribe una función que transforme una cadena de texto aplicando una serie de funciones de transformación.
+**19.** Implementar el patrón de *transductor*: una composición de transformaciones (map, filter, take) que opera sobre cualquier fuente de datos (lista, archivo, stream) sin crear colecciones intermedias. Demostrar que procesa 10,000,000 de registros usando memoria constante.
 
-28. **Filtrar Palabras Prohibidas**: Implementa un filtro de palabras que elimine palabras específicas de un texto utilizando `filter` y `map`.
+**20.** Diseñar un DSL (lenguaje de dominio específico) embebido en Python para describir horarios escolares del TecNM: cursos, salones, profesores y restricciones (mismo profesor no puede estar en dos salones a la vez, estudiante no puede tener dos clases simultáneas). El sistema debe detectar y reportar conflictos.
 
-29. **Comprensión de Listas**: Crea una función que utilice comprensión de listas para generar la tabla de multiplicar de un número dado.
+**21.** Implementar un sistema de continuaciones (*continuations*) para manejar flujos de control complejos: implementar `call/cc` básico en Python usando excepciones o corrutinas, y usarlo para implementar backtracking y generadores perezosos.
 
-30. **Derivada Numérica**: Escribe una función que calcule la derivada numérica de una función dada usando un pequeño valor delta.
-
-31. **Aplicación Múltiple de Funciones**: Implementa una función que aplique una lista de funciones múltiples veces a un valor inicial.
-
-32. **Juego de Palabras Anagramas**: Crea una función que verifique si dos palabras son anagramas usando funciones de orden superior.
-
-33. **Generador de Contraseñas Aleatorias**: Escribe una función que genere una contraseña aleatoria de longitud variable utilizando funciones puras.
-
-34. **Monedero Virtual Funcional**: Implementa un monedero virtual que permita agregar, eliminar y consultar fondos usando programación funcional.
-
-35. **Mapeo de Distancias**: Escribe una función que tome una lista de puntos en un plano cartesiano y calcule la distancia de cada punto al origen usando `map`.
-
-36. **Juego de Recursión de Números Primos**: Crea una función que utilice recursión para generar números primos hasta un límite dado.
-
-37. **Función de Composición Compleja**: Implementa una función que componga tres funciones diferentes y aplíquela a un valor.
-
-38. **Búsqueda Binaria Recursiva**: Escribe una función de búsqueda binaria recursiva para encontrar un elemento en una lista ordenada.
-
-39. **Verificación de Palíndromos**: Implementa una función que verifique si una frase es un palíndromo ignorando espacios y puntuación.
-
-40. **Juego de Generación de Permutaciones**: Escribe una función que genere todas las permutaciones posibles de una lista dada usando recursión.
+**22.** Construir un framework de pruebas unitarias funcional: `describe`, `it`, `expect`, `beforeEach` — similar a Jest — implementado puramente con funciones de orden superior, sin clases. El framework debe reportar pruebas pasadas, fallidas y el error exacto de cada falla.

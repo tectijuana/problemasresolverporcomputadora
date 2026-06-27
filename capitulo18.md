@@ -1,149 +1,61 @@
+# Capítulo 18: Inteligencia Artificial Clásica
 
-## CAPÍTULO 18: PROGRAMACIÓN REACTIVA
+> *Capítulo de elaboración propia — extensión moderna del libro de Donald D. Spencer para programadores mexicanos 2026*
 
-Este capítulo incluye problemas diseñados para ser resueltos utilizando el paradigma de programación reactiva. Este enfoque se centra en manejar flujos de datos asíncronos y la propagación de cambios a través de la programación de flujos y la utilización de observables, suscripciones y operadores de transformación.
+## Introducción
 
-1. **Reloj en Tiempo Real**: Implementa un reloj digital en una interfaz de usuario que se actualice cada segundo utilizando un flujo de datos reactivo.
+Antes de usar un modelo de lenguaje, antes de llamar a una API de IA, todo programador debe entender cómo funcionan los algoritmos de aprendizaje automático desde adentro. Este capítulo implementa los algoritmos clásicos de ML desde cero — sin sklearn, sin TensorFlow, sin PyTorch — para que quede claro qué hace cada modelo, por qué funciona y cuándo falla. Los datos de entrenamiento y prueba usados en los problemas provienen de fuentes mexicanas reales: INEGI, IMSS, SEP y registros públicos disponibles.
 
-2. **Autocompletar con Búsqueda Reactiva**: Crea un campo de búsqueda con autocompletar que sugiera términos basándose en las entradas del usuario, utilizando un flujo de datos para manejar las búsquedas asíncronas.
+## Regresión
 
-3. **Contador de Clics Reactivo**: Implementa un contador de clics que se actualice en tiempo real a medida que el usuario hace clic en un botón. Usa un flujo de eventos para manejar los clics.
+**1.** Implementar regresión lineal simple con descenso de gradiente desde cero: dado un dataset de precios de vivienda en Tijuana (metros cuadrados vs. precio en MXN, 500 registros del INFONAVIT), encontrar la línea que mejor ajusta los datos. Implementar el cálculo del error cuadrático medio (MSE) y la $R^2$. Graficar la curva de aprendizaje (error vs. iteraciones).
 
-4. **Formulario Reactivo de Validación**: Crea un formulario con validación en tiempo real que actualice los mensajes de error mientras el usuario escribe en los campos de entrada.
+**2.** Implementar regresión lineal múltiple usando la ecuación normal $\hat{\beta} = (X^TX)^{-1}X^Ty$. Predecir el salario mensual de egresados del TecNM a partir de: carrera, semestre de egreso, promedio, idiomas que habla y ciudad de trabajo. Usar datos del INEGI sobre egresados de IES. Interpretar los coeficientes.
 
-5. **Actualización de Precios en Tiempo Real**: Implementa una aplicación de comercio que muestre precios de productos en tiempo real utilizando un flujo de datos reactivo desde un servidor.
+**3.** Implementar regresión logística binaria con descenso de gradiente: predecir si un alumno del TecNM reprobará el semestre (1) o no (0) a partir de sus calificaciones parciales, asistencia y materias en curso. Implementar la función sigmoide, la función de pérdida de entropía cruzada y calcular precisión, recall y F1-score.
 
-6. **Sistema de Notificaciones en Tiempo Real**: Crea un sistema de notificaciones que reciba mensajes en tiempo real y los muestre en una interfaz de usuario utilizando programación reactiva.
+**4.** Implementar regresión polinomial de grado $k$ transformando las características: dado el crecimiento poblacional de la ZMT (Zona Metropolitana de Tijuana) de 1950 a 2020, ajustar un polinomio de grado 1, 2, 3 y 5. Identificar el grado que mejor generaliza sin sobreajuste usando validación cruzada.
 
-7. **Juego de Atraparlos Todos**: Implementa un juego donde los objetos caen de la parte superior de la pantalla y el jugador debe hacer clic en ellos para atraparlos. Usa flujos reactivos para generar y mover los objetos.
+## Clasificación
 
-8. **Visualización de Datos en Tiempo Real**: Crea un panel de control que visualice datos de sensores en tiempo real utilizando gráficos reactivos.
+**5.** Implementar el clasificador k-Nearest Neighbors (kNN) desde cero: clasificar tipos de aguacate Hass de Michoacán (calidad A, B, C) a partir de peso, diámetro y color (valores RGB). Probar con $k = 1, 3, 5, 7, 11$ y seleccionar el mejor $k$ por validación cruzada de 5 pliegues.
 
-9. **Chat en Tiempo Real**: Implementa una aplicación de chat que muestre mensajes en tiempo real utilizando flujos de datos reactivos para manejar la entrada y salida de mensajes.
+**6.** Implementar Naive Bayes gaussiano para clasificación de texto: dado un dataset de correos del gobierno federal etiquetados como "spam" o "legítimo" (10,000 correos), entrenar el clasificador calculando la probabilidad condicional de cada palabra y la probabilidad a priori de cada clase. Reportar matriz de confusión y F1-score.
 
-10. **Filtros Dinámicos de Imágenes**: Crea una aplicación que aplique filtros a imágenes en tiempo real a medida que el usuario ajusta los controles deslizantes para modificar parámetros como brillo y contraste.
+**7.** Implementar un árbol de decisión (CART) desde cero: calcular la impureza de Gini para cada posible corte, elegir el mejor corte en cada nodo y construir el árbol hasta profundidad máxima $d$. Usar el árbol para predecir si un crédito del INFONAVIT será pagado puntualmente o incurrirá en mora, a partir de 8 características del solicitante.
 
-11. **Juego de Memoria con Reactividad**: Implementa un juego de memoria donde las cartas se voltean y se comparan en tiempo real utilizando programación reactiva para manejar las interacciones del usuario.
+**8.** Implementar Random Forest como ensemble de $N$ árboles de decisión entrenados con bootstrap: comparar la precisión del bosque vs. un árbol solo para el problema de mora del INFONAVIT. Graficar la importancia de cada característica según el bosque. ¿Qué variables son más predictivas de la mora?
 
-12. **Simulación de Bolsa de Valores**: Crea una simulación de bolsa de valores que actualice los precios de las acciones en tiempo real y permita a los usuarios comprar y vender acciones.
+**9.** Implementar Support Vector Machine (SVM) con kernel lineal usando el algoritmo SMO simplificado: clasificar registros del padrón electoral en dos grupos (votó/no votó en la última elección) a partir de edad, escolaridad y distancia a la casilla. Visualizar el hiperplano de separación y los vectores de soporte.
 
-13. **Temporizador de Cuenta Regresiva Reactivo**: Implementa un temporizador de cuenta regresiva que actualice la pantalla en tiempo real y dispare una alerta cuando el tiempo se agote.
+## Agrupamiento y Reducción de Dimensiones
 
-14. **Sistema de Monitoreo de Salud**: Crea una aplicación que monitoree en tiempo real las métricas de salud del usuario, como el ritmo cardíaco y la temperatura, y muestre alertas en caso de valores anómalos.
+**10.** Implementar k-means desde cero: agrupar los 2,469 municipios de México en $k$ clusters según indicadores socioeconómicos del INEGI (IDH, cobertura de agua potable, internet, salud). Para $k = 3, 5, 8$, calcular la inercia intra-cluster y el coeficiente de silueta. ¿Cuántos grupos representan mejor la realidad?
 
-15. **Actualización de Noticias en Tiempo Real**: Implementa una aplicación de noticias que muestre titulares en tiempo real a medida que se publican utilizando un flujo de datos desde un servidor de noticias.
+**11.** Implementar PCA (Análisis de Componentes Principales) desde cero usando la descomposición de valores singulares (SVD): reducir el dataset de municipios de 20 dimensiones a 2 para visualizarlo. ¿Qué porcentaje de la varianza capturan las primeras 2 componentes? ¿Qué características forman cada componente?
 
-16. **Visualización de Red Social**: Crea una interfaz de red social que actualice en tiempo real las publicaciones y comentarios utilizando programación reactiva.
+**12.** Implementar DBSCAN (Density-Based Spatial Clustering): dado un mapa de coordenadas GPS de reportes ciudadanos en la app Mejora Tu Ciudad de Tijuana, identificar automáticamente los "puntos calientes" de problemas urbanos (baches, alumbrado, basura) sin especificar el número de clusters. Filtrar ruido (reportes aislados).
 
-17. **Juego de Aventura en Tiempo Real**: Implementa un juego de aventura en el que los personajes y enemigos se mueven y reaccionan en tiempo real basándose en flujos de eventos.
+## Redes Neuronales desde Cero
 
-18. **Contador de Palabras en Tiempo Real**: Crea un editor de texto que muestre en tiempo real el número de palabras y caracteres a medida que el usuario escribe.
+**13.** Implementar un Perceptrón simple y entrenarlo con la regla del perceptrón: clasificar solicitudes de crédito bancario como aprobadas o rechazadas. Demostrar que el perceptrón no puede resolver el problema XOR y explicar por qué.
 
-19. **Seguimiento de Ubicación en Tiempo Real**: Implementa una aplicación de mapas que muestre la ubicación de un usuario en tiempo real y actualice su posición en un mapa.
+**14.** Implementar una red neuronal multicapa (MLP) con propagación hacia adelante y hacia atrás (backpropagation): arquitectura 4-8-4-1 (4 entradas, dos capas ocultas, 1 salida). Entrenarla para predecir si un paciente del IMSS tiene riesgo de diabetes tipo 2 a partir de 4 variables clínicas (IMC, glucosa en ayunas, presión arterial, edad). Sin usar ninguna librería de ML.
 
-20. **Simulación de Tráfico en Tiempo Real**: Crea una simulación de tráfico urbano donde los vehículos se muevan y reaccionen a señales de tráfico y otros vehículos en tiempo real.
+**15.** Implementar una red neuronal convolucional (CNN) simplificada para clasificar dígitos escritos a mano del dataset MNIST (o equivalente de dígitos de códigos postales mexicanos): una capa convolucional + pooling + capa densa. Alcanzar precisión mayor al 95% en el conjunto de prueba.
 
-21. **Notificaciones de Correo Electrónico en Tiempo Real**: Implementa un sistema de notificaciones que avise al usuario cuando reciba un nuevo correo electrónico utilizando programación reactiva.
+## Evaluación y Métricas
 
-22. **Sistema de Votación en Tiempo Real**: Crea una aplicación de votación que muestre los resultados en tiempo real a medida que se reciben los votos.
+**16.** Implementar desde cero las métricas de evaluación para clasificación: precisión (accuracy), precisión por clase (precision), exhaustividad (recall), F1-score, y curva ROC con área bajo la curva (AUC). Aplicarlas al modelo de riesgo de diabetes del problema 14 y determinar el umbral de clasificación óptimo.
 
-23. **Seguimiento de Temperatura**: Implementa una aplicación que muestre la temperatura en tiempo real desde sensores ubicados en diferentes ubicaciones.
+**17.** Implementar validación cruzada estratificada de $k$ pliegues y búsqueda de hiperparámetros (grid search): optimizar los hiperparámetros del árbol de decisión del problema 7 (profundidad máxima, mínimo de muestras por hoja, criterio de impureza). Reportar el intervalo de confianza del 95% para la precisión del modelo óptimo.
 
-24. **Juego de Carreras en Tiempo Real**: Crea un juego de carreras de autos donde los autos se muevan y reaccionen en tiempo real a las entradas del usuario.
+---
 
-25. **Control de Calidad en Tiempo Real**: Implementa un sistema que monitoree en tiempo real la calidad de productos en una línea de ensamblaje y muestre alertas cuando se detecten problemas.
+## Problemas adicionales
 
-26. **Sistema de Control de Riego Inteligente**: Crea una aplicación que monitoree la humedad del suelo en tiempo real y controle automáticamente el riego en función de los datos recibidos.
+**18.** Implementar el algoritmo de Expectation-Maximization (EM) para mezcla de gaussianas: dado un dataset de tiempos de espera en módulos del SAT con distribución bimodal (hay dos turnos de atención con diferentes tiempos promedio), estimar los parámetros de las dos gaussianas componentes.
 
-27. **Panel de Control de Smart Home**: Implementa un panel de control que muestre en tiempo real el estado de dispositivos inteligentes en un hogar y permita su control remoto.
+**19.** Implementar gradient boosting desde cero (una versión simplificada de XGBoost): ensemble de árboles donde cada árbol corrige los errores del anterior. Comparar con Random Forest en el problema de mora del INFONAVIT. ¿Cuál alcanza mayor precisión con el mismo número de árboles?
 
-28. **Actualización en Tiempo Real de Encuestas**: Crea una aplicación de encuestas que muestre los resultados en tiempo real a medida que los usuarios responden.
-
-29. **Detección de Intrusos en Tiempo Real**: Implementa un sistema de seguridad que detecte y muestre alertas en tiempo real cuando se detecta movimiento en una propiedad.
-
-30. **Juego de Simón Dice Reactivo**: Crea una versión del juego "Simón dice" donde las secuencias de luces se generen y se reaccionen en tiempo real a las acciones del usuario.
-
-31. **Monitoreo de Redes en Tiempo Real**: Implementa una herramienta de monitoreo de redes que muestre en tiempo real el tráfico de red y detecte posibles amenazas.
-
-32. **Control de Energía en Tiempo Real**: Crea una aplicación que monitoree y controle el consumo de energía en tiempo real en un edificio.
-
-33. **Sistema de Reserva de Asientos en Tiempo Real**: Implementa un sistema que permita a los usuarios reservar asientos en un evento y muestre la disponibilidad en tiempo real.
-
-34. **Juego de Ajedrez en Tiempo Real**: Crea una aplicación de ajedrez que permita a dos jugadores jugar en tiempo real y muestre los movimientos de cada jugador en la pantalla.
-
-35. **Aplicación de Seguimiento de Tareas**: Implementa una aplicación que muestre en tiempo real el estado de las tareas de un equipo y permita la colaboración en tiempo real.
-
-36. **Simulación de Clima en Tiempo Real**: Crea una simulación que muestre en tiempo real las condiciones climáticas en diferentes ubicaciones.
-
-37. **Juego de Pesca en Tiempo Real**: Implementa un juego de pesca donde los peces se muevan en tiempo real y el jugador deba atraparlos usando una caña de pescar.
-
-38. **Monitoreo de Servidores en Tiempo Real**: Crea una herramienta que muestre en tiempo real el estado y rendimiento de servidores y dispare alertas en caso de fallos.
-
-39. **Plataforma de Trading en Tiempo Real**: Implementa una plataforma de trading que muestre en tiempo real los precios de acciones y permita realizar transacciones al instante.
-
-40. **Simulación de Bolsa en Tiempo Real**: Crea una simulación de la bolsa que muestre en tiempo real los precios de las acciones y permita a los usuarios comprar y vender.
-
-41. **Sistema de Mensajería en Tiempo Real**: Implementa un sistema de mensajería instantánea que permita a los usuarios enviar y recibir mensajes en tiempo real.
-
-42. **Visualización de Datos de IoT en Tiempo Real**: Crea una aplicación que muestre en tiempo real los datos de dispositivos IoT como sensores de temperatura y humedad.
-
-43. **Juego de Estrategia en Tiempo Real**: Implementa un juego de estrategia donde los jugadores construyan y controlen sus ejércitos en tiempo real.
-
-44. **Aplicación de Emergencia en Tiempo Real**: Crea una aplicación que muestre en tiempo real la ubicación de incidentes de emergencia y despache recursos de respuesta.
-
-45. **Aplicación de Seguimiento de Actividad Física**: Implementa una aplicación que muestre en tiempo real las métricas de actividad física del usuario, como pasos y calorías quemadas.
-
-46. **Panel de Control de Producción en Tiempo Real**: Crea un panel de control que muestre en tiempo real la producción en una fábrica y permita ajustar parámetros de producción.
-
-47. **Sistema de Inventario en Tiempo Real**: Implementa un sistema de inventario que actualice en tiempo real la cantidad de productos en stock a medida que se venden.
-
-48. **Juego de Defensa en Tiempo Real**: Crea un juego de defensa donde los jugadores coloquen torres y defiendan su base en tiempo real de oleadas de enemigos.
-
-49. **Simulación de Ecosistema en Tiempo Real**: Implementa una simulación de un ecosistema donde diferentes especies interactúan en tiempo real basándose en reglas ecológicas.
-
-50
-
-. **Aplicación de Educación en Tiempo Real**: Crea una plataforma educativa que permita a los estudiantes y profesores interactuar en tiempo real durante las clases.
-
-51. **Juego de Música Reactiva**: Implementa un juego de ritmo donde la música y los efectos visuales cambian en tiempo real en respuesta a las acciones del jugador.
-
-52. **Visualización de Datos Financieros en Tiempo Real**: Crea una aplicación que muestre en tiempo real los indicadores financieros y permita análisis interactivos.
-
-53. **Aplicación de Control de Calidad en Tiempo Real**: Implementa un sistema que monitoree en tiempo real los parámetros de calidad en una línea de producción.
-
-54. **Sistema de Alarma de Seguridad en Tiempo Real**: Crea una aplicación que monitoree en tiempo real la seguridad de una propiedad y dispare alarmas ante eventos sospechosos.
-
-55. **Simulación de Entorno Urbano en Tiempo Real**: Implementa una simulación que modele el tráfico, las personas y los eventos en una ciudad en tiempo real.
-
-56. **Aplicación de Encuestas en Tiempo Real**: Crea una aplicación que permita a los usuarios responder encuestas y mostrar los resultados en tiempo real.
-
-57. **Juego de Arcade en Tiempo Real**: Implementa un juego de arcade clásico donde los personajes y enemigos se muevan y reaccionen en tiempo real.
-
-58. **Simulación de Respuesta a Desastres en Tiempo Real**: Crea una simulación que modele la respuesta a desastres naturales como terremotos e inundaciones en tiempo real.
-
-59. **Sistema de Control de Tráfico en Tiempo Real**: Implementa un sistema que monitoree en tiempo real el tráfico vehicular y optimice las señales de tráfico.
-
-60. **Aplicación de Análisis de Redes Sociales en Tiempo Real**: Crea una aplicación que analice en tiempo real los datos de redes sociales y muestre tendencias emergentes.
-
-61. **Juego de Laberinto en Tiempo Real**: Implementa un juego de laberinto donde el jugador navega por un laberinto en tiempo real y enfrenta desafíos.
-
-62. **Simulación de Mercado de Bienes en Tiempo Real**: Crea una simulación de mercado donde los precios de los bienes cambien en tiempo real basándose en la oferta y demanda.
-
-63. **Visualización de Redes en Tiempo Real**: Implementa una aplicación que muestre en tiempo real la topología de una red y el flujo de datos.
-
-64. **Sistema de Gestión de Flotas en Tiempo Real**: Crea una aplicación que muestre en tiempo real la ubicación y estado de los vehículos en una flota.
-
-65. **Juego de Estrategia Militar en Tiempo Real**: Implementa un juego donde los jugadores manejen ejércitos y recursos en tiempo real para conquistar territorios.
-
-66. **Aplicación de Seguimiento de Inventario de Alimentos en Tiempo Real**: Crea una aplicación que monitoree en tiempo real el inventario de alimentos en un restaurante.
-
-67. **Simulación de Transporte Público en Tiempo Real**: Implementa una simulación que muestre en tiempo real la ubicación y tiempos de llegada de autobuses y trenes.
-
-68. **Juego de Supervivencia en Tiempo Real**: Crea un juego donde los jugadores deben sobrevivir en un entorno hostil y responder en tiempo real a eventos como ataques y desastres.
-
-69. **Visualización de Datos de Transporte en Tiempo Real**: Implementa una aplicación que muestre en tiempo real los patrones de tráfico y transporte en una ciudad.
-
-70. **Simulación de Mercado Financiero en Tiempo Real**: Crea una simulación que modele en tiempo real el comportamiento de un mercado financiero y las reacciones de los inversores.
-
-
-Estos problemas están diseñados para aplicar y reforzar los conceptos de programación reactiva, proporcionando oportunidades para trabajar con flujos de datos en tiempo real, manejo de eventos, y actualización dinámica de interfaces de usuario.
+**20.** Construir un sistema de detección de anomalías no supervisado para transacciones financieras del SPEI: entrenar un autoencoder simple con transacciones normales y usar el error de reconstrucción como puntaje de anomalía. Calibrar el umbral para detectar el 90% de las transacciones fraudulentas con menos del 1% de falsos positivos.
