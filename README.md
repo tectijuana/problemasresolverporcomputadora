@@ -10,7 +10,7 @@ Extensión moderna 2026: TecNM Campus Tijuana
 > Pensado para estudiantes, docentes y entusiastas que buscan retos algorítmicos de todos los niveles — desde fundamentos matemáticos hasta IA, agentes autónomos y sistemas embebidos. Una generación resiliente con habilidades técnicas y de proyección.
 
 [![Capítulos](https://img.shields.io/badge/Capítulos-22-blue)](.)
-[![Problemas](https://img.shields.io/badge/Problemas-1%2C143-green)](.)
+[![Problemas](https://img.shields.io/badge/Problemas-1%2C153-green)](.)
 [![Idioma](https://img.shields.io/badge/Idioma-Español-red)](.)
 [![Contexto](https://img.shields.io/badge/Contexto-México%202026-orange)](.)
 
@@ -40,7 +40,7 @@ Extensión moderna 2026: TecNM Campus Tijuana
 | # | Capítulo | Problemas |
 |:-:|----------|:---------:|
 | [12](capitulo12.md) | [Algoritmos Clásicos y Estructuras de Datos](capitulo12.md) | 32 |
-| [13](capitulo13.md) | [Paradigmas de Programación](capitulo13.md) | 34 |
+| [13](capitulo13.md) | [Paradigmas de Programación](capitulo13.md) | 44 |
 | [14](capitulo14.md) | [Programación Orientada a Objetos y Patrones de Diseño](capitulo14.md) | 25 |
 | [15](capitulo15.md) | [Bases de Datos y Persistencia](capitulo15.md) | 22 |
 | [16](capitulo16.md) | [Desarrollo Web y APIs](capitulo16.md) | 22 |
@@ -50,11 +50,11 @@ Extensión moderna 2026: TecNM Campus Tijuana
 | [20](capitulo20.md) | [Agentes Autónomos y Sistemas Multi-Agente](capitulo20.md) ⭐ | 20 |
 | [21](capitulo21.md) | [Sistemas Embebidos e IoT con IA](capitulo21.md) | 20 |
 | [22](capitulo22.md) | [Seguridad, Ética e IA Responsable](capitulo22.md) ⭐ | 22 |
-| | **Subtotal** | **255** |
+| | **Subtotal** | **265** |
 
 > ⭐ Capítulos únicos en español a este nivel de detalle y con criterios de evaluación objetivos.
 
-| | **TOTAL** | **1,143** |
+| | **TOTAL** | **1,153** |
 
 ---
 
