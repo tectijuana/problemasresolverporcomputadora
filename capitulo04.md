@@ -1,87 +1,175 @@
+# Capítulo 4: Trigonometría
 
-## CAPÍTULO 4: TRIGONOMETRÍA
+> *Basado en el libro de Donald D. Spencer, Editorial Limusa, 1985*
 
-Los problemas que se presentan en este capítulo son adecuados para un curso de trigonometría de nivel básico e intermedio. La trigonometría, una rama de las matemáticas, estudia las relaciones entre los ángulos y los lados de los triángulos, especialmente los triángulos rectángulos. Con ayuda de la computadora, los estudiantes pueden resolver problemas que impliquen funciones trigonométricas con mayor facilidad y precisión.
+## Introducción
 
-1. Imprimir una tabla de las funciones trigonométricas seno, coseno y tangente para ángulos de 0° a 90°, en incrementos de 5°.
-2. Encontrar el seno, coseno y tangente de un ángulo dado en grados.
-3. Convertir un ángulo de grados a radianes.
-4. Convertir un ángulo de radianes a grados.
-5. Determinar si dos ángulos cualesquiera son complementarios o suplementarios.
-6. Encontrar los valores de las funciones trigonométricas inversas: arco seno, arco coseno y arco tangente de un valor dado.
-7. Dado un ángulo en grados, encontrar su cotangente, secante y cosecante.
-8. Escribir un programa para resolver triángulos rectángulos, dados los valores de un ángulo agudo y un lado.
-9. Escribir un programa para resolver triángulos rectángulos, dados los valores de dos lados.
-10. Usar las identidades trigonométricas básicas para calcular las funciones trigonométricas de ángulos agudos.
-11. Encontrar el valor de la función \( \sin(2\theta) \), dado \( \sin(\theta) \) y \( \cos(\theta) \).
-12. Calcular los valores de las funciones \( \sin(\theta) \), \( \cos(\theta) \) y \( \tan(\theta) \) para \( \theta = 0, 30, 45, 60, 90 \) grados.
-13. Usar la relación \( \sin^2(\theta) + \cos^2(\theta) = 1 \) para encontrar el valor de \( \cos(\theta) \), dado \( \sin(\theta) \).
-14. Encontrar las soluciones para la ecuación trigonométrica \( \sin(\theta) = \frac{1}{2} \).
-15. Calcular el área de un triángulo, dados dos lados y el ángulo comprendido entre ellos usando la fórmula \( \text{Área} = \frac{1}{2}ab\sin(C) \).
-16. Determinar si tres números dados pueden ser las longitudes de los lados de un triángulo rectángulo.
-17. Calcular el valor de \( \sin(\alpha + \beta) \) y \( \cos(\alpha + \beta) \) dados \( \sin(\alpha) \), \( \cos(\alpha) \), \( \sin(\beta) \) y \( \cos(\beta) \).
-18. Escribir un programa que imprima una tabla de las funciones trigonométricas seno y coseno para ángulos de 0 a \( 2\pi \) radianes en incrementos de \( \frac{\pi}{6} \).
-19. Dado un triángulo rectángulo con ángulo \( \theta \) y lado adyacente \( b \), encontrar la hipotenusa y el lado opuesto.
-20. Calcular el valor de la función \( \tan(2\theta) \), dado \( \tan(\theta) \).
-21. Usar la fórmula de adición de ángulos para calcular \( \sin(\alpha - \beta) \) y \( \cos(\alpha - \beta) \) dados \( \sin(\alpha) \), \( \cos(\alpha) \), \( \sin(\beta) \) y \( \cos(\beta) \).
-22. Escribir un programa para calcular las funciones hiperbólicas \( \sinh(x) \), \( \cosh(x) \) y \( \tanh(x) \) para un valor dado de \( x \).
-23. Calcular el área de un sector circular dado el radio y el ángulo en grados.
-24. Determinar las soluciones de la ecuación trigonométrica \( \tan(\theta) = 1 \).
-25. Encontrar la altura de un árbol, dado el ángulo de elevación desde un punto conocido y la distancia a la base del árbol.
-26. Calcular la longitud del arco de un círculo, dados el radio y el ángulo en grados.
-27. Escribir un programa que determine la distancia entre dos puntos en una esfera dados sus ángulos de latitud y longitud.
-28. Calcular el ángulo entre dos vectores dados en el espacio.
-29. Determinar la dirección y la magnitud de la resultante de dos fuerzas dadas usando sus ángulos de dirección.
-30. Encontrar el valor de \( \sin(\frac{\pi}{4}) \) y \( \cos(\frac{\pi}{4}) \) usando la identidad trigonométrica de ángulos medios.
-31. Calcular las coordenadas de un punto en el plano, dados su distancia al origen y el ángulo de la línea que pasa por el punto con respecto al eje x.
-32. Determinar si un triángulo es agudo, obtuso o recto, dados sus lados.
-33. Escribir un programa que convierta coordenadas polares a coordenadas rectangulares.
-34. Calcular la suma de las funciones trigonométricas \( \sin(\theta) \) y \( \cos(\theta) \) para \( \theta = 0, 15, 30, ..., 360 \) grados.
-35. Dado un triángulo rectángulo con ángulo \( \theta \) y lado opuesto \( a \), encontrar la hipotenusa y el lado adyacente.
-36. Usar las identidades trigonométricas para simplificar \( \frac{1 - \cos(2\theta)}{\sin(2\theta)} \).
-37. Calcular los valores de \( \sin^2(\theta) \) y \( \cos^2(\theta) \) dados \( \sin(\theta) \) y \( \cos(\theta) \).
-38. Determinar los valores de \( \sin(\theta) \) y \( \cos(\theta) \) dados \( \tan(\theta) \).
-39. Escribir un programa para calcular el volumen de un cono dado su radio y altura usando funciones trigonométricas.
-40. Encontrar la longitud de la sombra de un objeto dado el ángulo de elevación del sol y la altura del objeto.
-41. Calcular el tiempo que tarda una onda en llegar a una distancia dada usando la velocidad de propagación y el ángulo de incidencia.
-42. Encontrar la amplitud de una función de onda dada su ecuación en términos de funciones trigonométricas.
-43. Determinar la frecuencia de una señal dada su representación en términos de funciones trigonométricas.
-44. Calcular el periodo de una función trigonométrica dada su frecuencia.
-45. Escribir un programa que convierta un número de radianes a su equivalente en grados.
-46. Determinar la pendiente de una línea dada su inclinación en grados con respecto al eje x.
-47. Calcular la derivada de \( \sin(\theta) \) y \( \cos(\theta) \) con respecto a \( \theta \).
-48. Encontrar la integral de \( \sin(\theta) \) y \( \cos(\theta) \) con respecto a \( \theta \).
-49. Calcular la transformación de Fourier de una función trigonométrica dada.
-50. Usar funciones trigonométricas para modelar el movimiento oscilatorio de un péndulo.
-51. Escribir un programa para calcular la velocidad angular de un objeto en movimiento circular uniforme dado su frecuencia.
-52. Determinar la fase de una onda dada su representación trigonométrica.
-53. Calcular la energía potencial de un sistema oscilatorio usando funciones trigonométricas.
-54. Escribir un programa que simule el movimiento de un objeto en un plano inclinado usando funciones trigonométricas.
-55. Determinar el desplazamiento de un objeto en movimiento armónico simple dado su amplitud y frecuencia angular.
-56. Calcular el valor de \( \sin(\theta) \) y \( \cos(\theta) \) para ángulos negativos usando identidades trigonométricas.
-57. Encontrar las raíces de una ecuación trigonométrica dada usando métodos numéricos.
-58. Determinar el ángulo de rotación necesario para alinear dos vectores en un plano.
-59. Calcular el momento angular de un objeto dado su velocidad angular y su masa.
-60. Usar funciones trigonométricas para modelar el comportamiento de un circuito RLC en corriente alterna.
-61. Escribir un programa para determinar la posición de un satélite en órbita usando funciones trigonométricas.
-62. Calcular el ángulo crítico para la reflexión interna total en un medio dado su índice de refracción.
-63. Encontrar la intensidad de la luz transmitida a través de un polarizador dado el ángulo de incidencia.
-64. Determinar el ángulo de Brewster para un material dado su índice de refracción.
-65. Calcular la trayectoria de un proyectil dado su ángulo de lanzamiento y velocidad inicial usando funciones trigonométricas.
-66. Encontrar el punto
+En este capítulo hay problemas adecuados para estudiantes que lleven un curso común en Trigonometría o en otros que la incluyan como parte del curso. Las computadoras resultan especialmente útiles en trigonometría porque permiten evaluar funciones trigonométricas, verificar identidades y resolver triángulos de manera rápida y precisa, lo que facilita la comprensión de los conceptos fundamentales.
 
- de impacto de un proyectil dado su ángulo de lanzamiento y velocidad inicial.
-67. Escribir un programa que simule el comportamiento de una onda estacionaria en una cuerda usando funciones trigonométricas.
-68. Calcular la diferencia de fase entre dos ondas dadas sus ecuaciones trigonométricas.
-69. Determinar la longitud de onda de una señal dada su frecuencia y la velocidad de propagación.
-70. Usar funciones trigonométricas para modelar la transmisión de ondas de sonido en un medio elástico.
-71. Calcular el cambio de fase de una onda reflejada en una superficie usando funciones trigonométricas.
-72. Encontrar la dirección de la corriente inducida en un circuito usando la ley de Faraday y funciones trigonométricas.
-73. Determinar el ángulo de desvío de un rayo de luz al pasar por un prisma dado su índice de refracción.
-74. Calcular la intensidad de una señal de radio en función de la distancia y el ángulo de propagación.
-75. Escribir un programa para calcular la interferencia constructiva y destructiva de dos ondas usando funciones trigonométricas.
-76. Usar funciones trigonométricas para modelar el flujo de corriente en un circuito de corriente alterna.
-77. Calcular la longitud de un péndulo simple dado su periodo de oscilación y la aceleración de la gravedad.
-78. Determinar la aceleración centrípeta de un objeto en movimiento circular dado su velocidad angular y su radio de curvatura.
-79. Escribir un programa que modele el movimiento de un satélite en una órbita elíptica usando funciones trigonométricas.
-80. Calcular la potencia de una señal en función de su amplitud y su frecuencia usando funciones trigonométricas.
+## Problemas
+
+**1.** Pasar de grados a radianes, usando múltiplos de 10°, desde 0° hasta 360°.
+
+**2.** Hacer un conversor bidireccional de ángulos. El usuario elige mediante un menú: (1) grados → radianes o (2) radianes → grados. El programa convierte el ángulo introducido y muestra el resultado con 6 decimales. Repetir hasta que el usuario elija salir.
+
+**3.** Encontrar los ángulos de un triángulo rectángulo de lados 3, 4 y 5, llegando hasta el minuto más cercano.
+
+**4.** Dados los tres lados de un triángulo cualquiera (no necesariamente rectángulo), usar la ley de los cosenos para encontrar los tres ángulos interiores hasta el minuto más cercano. Probar con los lados $a = 5$ m, $b = 12$ m y $c = 13$ m, y verificar que el resultado del triángulo 5-12-13 es rectángulo.
+
+**5.** Cualquier ángulo cuya medida en grados sea mayor que 90° o menor que 0° tiene un ángulo de referencia entre 0° y 90°, inclusive. Introducir la medida en grados de un ángulo entre −360° y 360°, inclusive, e imprimir la medida de su ángulo de referencia.
+
+**6.** Convertir de coordenadas polares $(r,\,\theta)$ a rectangulares $(x,\,y)$ usando $x = r\cos\theta$ y $y = r\sin\theta$. Evaluar las siguientes curvas para $\theta = 0°, 5°, 10°, \ldots, 360°$:
+
+$$r = \cos 3\theta$$
+
+$$r = \sin 3\theta$$
+
+$$r = \sin\theta + \cos\theta$$
+
+**7.** Dado un ángulo $\theta$ en grados, calcular el punto $(\cos\theta,\,\sin\theta)$ sobre el círculo unitario. Mostrar en pantalla: el ángulo en grados y en radianes, los valores de sin, cos y tan, y la posición aproximada del punto en un diagrama ASCII de $21 \times 21$ caracteres. Probar con $\theta = 0°, 30°, 45°, 60°, 90°, 120°, 150°, 180°, 270°$.
+
+**8.** Sin usar las funciones ya programadas para senos y cosenos, generar una tabla para estas funciones con todos los ángulos desde 0° a 90°, usando las series de Taylor (ver problemas 28 y 29).
+
+**9.** Imprimir en forma de columna el seno, coseno y tangente de $x$ en grados. Introducir el ángulo inicial $A$, el incremento $I$ y el ángulo final $B$.
+
+**10.** Dado cualquier triángulo con lados $a$, $b$ y $c$ introducidos por el usuario: (a) determinar si es agudo, rectángulo u obtuso comparando $a^2 + b^2$ con $c^2$ para el lado mayor; (b) calcular los tres ángulos interiores con la ley de los cosenos; (c) clasificarlo como escaleno, isósceles o equilátero. Probar con: $(5, 5, 8)$, $(3, 4, 5)$, $(6, 7, 8)$, $(10, 10, 10)$.
+
+**11.** Un triángulo rectángulo tiene un ángulo de 42°25' y el lado opuesto a este ángulo mide 25.4 cm. Encontrar los otros dos lados del triángulo.
+
+**12.** Determinar el área de un triángulo usando la fórmula:
+
+$$\text{Área} = \frac{1}{2}\,a\,b\,\sin C$$
+
+donde $a$ y $b$ son dos lados conocidos y $C$ es el ángulo comprendido entre ellos.
+
+**13.** Introducir las longitudes de la hipotenusa y un cateto de un triángulo rectángulo. Determinar el seno, coseno y tangente de cada uno de los ángulos agudos del triángulo.
+
+**14.** Leer las longitudes de los catetos de un triángulo rectángulo. Calcular e imprimir los valores de las seis funciones trigonométricas de cada ángulo agudo del triángulo.
+
+**15.** Imprimir $\sin^2 x + \cos^2 x$ para $x = 5°, 10°, 15°, \ldots, 85°$. Examinar la salida. ¿Qué conclusiones puede sacar?
+
+**16.** Verificar la identidad trigonométrica $\sin 2\theta = 2\sin\theta\cos\theta$ para diez valores de $\theta$ elegidos entre 0° y 360°.
+
+**17.** Si se conocen las longitudes de dos lados de un triángulo y la medida del ángulo comprendido, se puede usar la ley de los cosenos para determinar el tercer lado. Para cualquier triángulo $ABC$:
+
+$$a^2 = b^2 + c^2 - 2bc\cos A$$
+
+$$b^2 = a^2 + c^2 - 2ac\cos B$$
+
+$$c^2 = a^2 + b^2 - 2ab\cos C$$
+
+Usar la ley de los cosenos para encontrar el lado desconocido de un triángulo con $b = 6$ cm, $c = 8$ cm y ángulo comprendido $A = 22°$.
+
+**18.** La ley de los senos establece que para cualquier triángulo $ABC$:
+
+$$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$$
+
+Dadas las longitudes de los lados $a$ y $b$ y el ángulo $C$, usar la ley de los cosenos para determinar el lado $c$ y luego la ley de los senos para encontrar los ángulos $A$ y $B$.
+
+**19.** Dos botes deportivos abandonan un muelle al mismo tiempo. Uno va hacia el norte a razón de 57 km/h y el otro a 63 km/h en una dirección de 40° al oeste respecto al norte. Después de 2 h, ¿a qué distancia se encuentran entre sí los botes?
+
+**20.** Un estudiante desea conocer la altura de la torre de telecomunicaciones de su ciudad. Desde un punto a 450 m de la base de la torre, mide un ángulo de elevación de 20°. Escribir un programa para calcular la altura de la torre. Generalizar el programa para que acepte cualquier distancia y ángulo de elevación como entrada.
+
+**21.** Calcular el área de un polígono regular de $N$ lados, cada uno de longitud $L$ metros:
+
+$$\text{Área} = \frac{NL^2}{4}\cot\!\left(\frac{180°}{N}\right)$$
+
+El programa debe introducir los valores de $N$ y $L$.
+
+**22.** Dos fuerzas actúan sobre un punto $P$. La primera, de magnitud $F_1 = 45$ N, forma un ángulo de 41° con la horizontal; la segunda, de magnitud $F_2 = 60$ N, forma un ángulo de 72° con la horizontal. Calcular la magnitud y dirección de la fuerza resultante.
+
+**23.** A 274 m de la base de un faro, a nivel del suelo, el ángulo de elevación de la linterna es de 8°15'. Encontrar la altura del faro.
+
+**24.** Una empresa de ingeniería civil está construyendo un puente a través de un río, desde el punto $A$ al punto $B$. Para encontrar la longitud del puente, un ingeniero localiza un punto $C$ a 30 m de $A$ tal que el triángulo $BAC$ sea rectángulo en $C$. El ángulo $BCA$ mide 55°. ¿Qué longitud debe tener el puente?
+
+**25.** En los videojuegos de estrategia y en mapas digitales se usan cuadrículas hexagonales. El área de un hexágono regular de lado $L$ es:
+
+$$A_{hex} = \frac{3\sqrt{3}}{2}L^2$$
+
+y su perímetro es $P = 6L$. Dado el lado $L$ de cada celda hexagonal y el número de celdas del mapa $N$, calcular el área total cubierta. Probar con $L = 1$ m y $N = 7,\,19,\,37$ (los primeros anillos concéntricos de un mapa hex).
+
+**26.** Un topógrafo desea medir la longitud de un lago. Para encontrar la distancia $AB$ entre dos puntos en orillas opuestas, localiza un punto $C$ a 95 m de $A$ y a 122 m de $B$, y mide que el ángulo $ACB$ es de 47.5°. ¿Cuál es la longitud del lago?
+
+**27.** En un parque hay un sendero peatonal entre los puntos $X$ e $Y$, con una distancia de 85 m. Los administradores desean construir senderos adicionales de $X$ a $Z$ y de $Y$ a $Z$. El ángulo $YXZ$ es de 38° y el ángulo $XYZ$ es de 54°. Determinar las longitudes $XZ$ e $YZ$.
+
+**28.** Calcular $\sin x$ mediante la serie de Taylor:
+
+$$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots$$
+
+donde $x$ está en radianes. Continuar la serie hasta que el término siguiente sea menor que $10^{-8}$.
+
+**29.** Calcular $\cos x$ con la serie de Taylor:
+
+$$\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots$$
+
+donde $x$ está en radianes. Continuar la serie hasta que el término siguiente sea menor que $10^{-8}$.
+
+**30.** Calcular $\arctan x$ con la serie de Taylor:
+
+$$\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots \quad (-1 < x < 1)$$
+
+Usar el programa para calcular $\pi \approx 4\arctan(1)$ con la serie de Leibniz.
+
+**31.** Una identidad fundamental de la trigonometría establece que para cualquier valor de $x$: $\sin^2 x + \cos^2 x = 1$. Diseñar un programa que verifique esta identidad para $x = 0°, 1°, 2°, \ldots, 360°$ e imprima los casos donde el resultado se aleje más de $10^{-10}$ de 1.
+
+**32.** Calcular el área de un segmento de círculo con la fórmula:
+
+$$\text{Área} = \frac{\pi r^2}{2} - \left[x\sqrt{r^2 - x^2} + r^2 \arcsin\!\left(\frac{x}{r}\right)\right]$$
+
+donde $r$ es el radio del círculo y $x$ es la distancia perpendicular del centro a la cuerda.
+
+**33.** Encontrar todos los ángulos $\theta \in [0°,\,360°)$ que satisfacen la ecuación trigonométrica:
+
+$$2\cos^2\theta - \cos\theta - 1 = 0$$
+
+Verificar cada solución sustituyendo en la ecuación original. Imprimir las soluciones en grados y en radianes.
+
+---
+
+## Problemas adicionales
+
+> *Problemas de elaboración propia, inspirados en el capítulo.*
+
+**34.** Verificar las identidades de la suma de ángulos para diez pares $(A,\,B)$ generados aleatoriamente entre 0° y 360°:
+
+$$\cos(A + B) = \cos A \cos B - \sin A \sin B$$
+
+$$\sin(A + B) = \sin A \cos B + \cos A \sin B$$
+
+**35.** Una señal de corriente alterna tiene la forma:
+
+$$v(t) = A\sin(2\pi f t + \phi)$$
+
+Con $A = 127$ V (tensión residencial estándar en México), $f = 60$ Hz y $\phi = \pi/6$ rad, imprimir la tensión $v(t)$ para $t = 0, 1, 2, \ldots, 20$ ms. Calcular también el valor RMS teórico $V_{rms} = A/\sqrt{2}$ y compararlo con el promedio cuadrático de los valores simulados.
+
+**36.** Un avión parte de la ciudad $A$ y vuela 450 km en dirección N45°E hasta $B$; luego vuela 320 km en dirección S30°E hasta $C$. Calcular la distancia directa $AC$ y el rumbo desde $A$ hacia $C$.
+
+**37.** Calcular todos los ángulos $\theta \in [0°,\,360°)$ que satisfacen la ecuación:
+
+$$2\sin^2\theta - 3\sin\theta + 1 = 0$$
+
+**38.** El período de un péndulo simple de longitud $L$ es:
+
+$$T = 2\pi\sqrt{\frac{L}{g}}$$
+
+con $g = 9.81$ m/s². Crear una tabla con $L = 0.25,\,0.50,\,0.75,\,1.00,\,1.50,\,2.00$ m y el período correspondiente en segundos.
+
+**39.** Convertir coordenadas esféricas $(\rho,\,\theta,\,\phi)$ a rectangulares $(x,\,y,\,z)$ usando:
+
+$$x = \rho\sin\phi\cos\theta \qquad y = \rho\sin\phi\sin\theta \qquad z = \rho\cos\phi$$
+
+Calcular para $\rho = 5$ m, $\theta = 30°$ y $\phi = 60°$.
+
+**40.** Dado un triángulo con lados $a = 12$ m, $b = 17$ m y $c = 9$ m, usar la ley de los cosenos para encontrar los tres ángulos interiores.
+
+**41.** Desde dos puntos $A$ y $B$ situados a 800 m de distancia en terreno plano se miden los ángulos de elevación de la cima de una montaña: 35° desde $A$ y 48° desde $B$, ambos del mismo lado. Calcular la altura de la montaña.
+
+**42.** Calcular el módulo y argumento de los números complejos $z = a + bi$, expresándolos en forma trigonométrica $z = r(\cos\theta + i\sin\theta)$, para:
+
+$$z_1 = 3 + 4i \qquad z_2 = -5 + 12i \qquad z_3 = 8 - 6i$$
+
+**43.** La temperatura de una ciudad varía durante el día según:
+
+$$T(h) = 22 + 8\sin\!\left(\frac{\pi(h - 6)}{12}\right)\ °\text{C}$$
+
+donde $h$ es la hora del día ($0 \leq h < 24$). Calcular e imprimir la temperatura para cada hora. Determinar el momento del día en que se alcanzan la temperatura máxima y la mínima.

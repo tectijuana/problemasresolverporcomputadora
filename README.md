@@ -1,101 +1,63 @@
-# PROBLEMAS PARA RESOLVER CON COMPUTADORA
+# Problemas para Resolver con Computadora
 
-**Matemáticas, Probabilidad y Estadística, Química, Física, Biología y Administración de Negocios**
-
-*Donald D. Spencer*
-
-**EDITORIAL LIMUSA**
-
-México · España · Venezuela · Argentina · Colombia · Puerto Rico
+**Donald D. Spencer** — Editorial Limusa, 1985  
+Versión en español de *Problems for Computer Solution* (Hayden Book Company)  
+Traducción: Guillermo García Talavera
 
 ---
 
-## PRÓLOGO
+Este repositorio contiene una transcripción digital del libro clásico de 1985, convertida de PDF a Markdown para facilitar su consulta, búsqueda y actualización. Los problemas originales estaban pensados para lenguajes como BASIC, FORTRAN, APL o PL/1 — aquí quedan disponibles para resolverse con Python, C, JavaScript o cualquier lenguaje moderno. El contenido ha sido modernizado para jóvenes programadores mexicanos en 2026.
 
-El propósito de este libro es reunir en un volumen una amplia relación de problemas para complementar los diversos textos de lenguajes para programación. Con mucha frecuencia, los textos de programación no contienen suficientes problemas para otorgar a los estudiantes neófitos la práctica que requieren.
+## Contenido
 
-Este libro se escribió específicamente para servir como un complemento para cualquier texto de lenguaje para programación (BASIC, FORTRAN, APL, PL/1, etc.). La obra completa es independiente de cualquier lenguaje de programación particular.
+| Capítulo | Tema | Problemas |
+|----------|------|-----------|
+| [01](capitulo-01-problemas-introductorios.md) | Problemas Introductorios | 90 |
+| [02](capitulo-02-algebra.md) | Álgebra | 130 |
+| [03](capitulo-03-geometria.md) | Geometría | 111 |
+| [04](capitulo-04-trigonometria.md) | Trigonometría | 43 |
+| [05](capitulo-05-probabilidad-y-estadistica.md) | Probabilidad y Estadística | 97 |
+| [06](capitulo-06-matematicas-intermedias.md) | Matemáticas Intermedias | 120 |
+| [07](capitulo-07-teoria-de-los-numeros.md) | Teoría de los Números | 92 |
+| [08](capitulo-08-ciencias-quimica-fisica-y-biologia.md) | Ciencias: Química, Física y Biología | 43 |
+| [09](capitulo-09-administracion.md) | Administración | 65 |
+| [10](capitulo-10-diversion-con-la-computadora.md) | Diversión con la Computadora | 51 |
+| [11](capitulo-11-miscelanea-de-problemas.md) | Miscelánea de Problemas | 46 |
+| | **Total** | **888** |
 
-Los problemas presentados aquí se distribuyeron por temas. Se incluyeron problemas provenientes de la mayoría de las disciplinas matemáticas (álgebra, geometría, trigonometría, matemáticas avanzadas, probabilidad, estadística y teoría de los números); de ciencias químicas, físicas, biológicas, administrativas y teoría de juegos.
+## Estado de la transcripción
 
-En cada capítulo se intentó disponer los problemas según su grado de dificultad; sin embargo, como la dificultad de cualquier problema depende de las bases y aptitudes de quien pretenda resolverlo, la distribución de los problemas debe verse con reservas. Por consiguiente, no debe suponerse que a un cierto problema van a sucederle otros de mayor dificultad. Algunos problemas incluyen diagramas como ayuda al lector.
+- [x] Extracción del PDF (OCR)
+- [x] División por capítulos
+- [x] Corrección completa de errores OCR en todos los capítulos
+- [x] Conversión de fórmulas a LaTeX estilo *GitHub math inline-block* (`$formula$`)
+- [x] Conversión de unidades imperiales a sistema métrico (SI)
+- [x] Eliminación de encabezados y pies de página del OCR
+- [x] Adición de 7–10 problemas originales al final de cada capítulo
+- [x] Modernización de precios a valores MXN 2026 (referencia: salario mínimo Zona Libre Frontera Norte)
+- [x] Actualización de fechas y referencias culturales al contexto mexicano actual
+- [x] Eliminación de problemas redundantes dentro y entre capítulos
+- [x] Sustitución de contexto anglosajón por referentes mexicanos (IMSS, CETES, IMECA, ISAI, etc.)
+- [ ] Agregar soluciones de referencia en Python/C
 
-El libro puede ser utilizado lo mismo por estudiantes que por profesores. El autor considera que la programación no puede aprenderse simplemente leyendo una descripción sobre cómo hacerla, sino que más bien se aprende experimentando y realizando. La gama amplia de problemas proporcionará material bastante para ejercicios de los estudiantes y estimulará su interés por la computación. El profesor puede, por ejemplo, utilizar el libro como una "fuente" de ejercicios, de temas de evaluación, de asignación de tareas, etc.
+## Convención de LaTeX
 
-Haremos una advertencia a los estudiantes que vean el libro: cerciórense de haber entendido completamente el problema antes de intentar resolverlo; desarrollen luego un algoritmo y tracen un diagrama de flujo. Después de esto, estarán ustedes listos para escribir un programa de computadora para resolver el problema.
+Todos los archivos usan el estilo **GitHub math inline-block**: cada fórmula ocupa su propia línea con `$formula$`, precedida y seguida de una línea en blanco. No se usa ningún entorno `\begin{}`. Este formato renderiza correctamente en GitHub y en aplicaciones de escritorio como Markdown3000.
 
-¡Feliz solución de problemas!
+## Notas sobre la transcripción
 
-*Donald D. Spencer*
+- Los errores OCR típicos (letras confundidas, acentos faltantes, números de página incrustados) fueron corregidos en todos los capítulos.
+- Los problemas con unidades imperiales (pies, pulgadas, millas, libras, galones, °F) fueron convertidos al SI. Se conservaron los ejercicios cuyo tema central es la conversión de unidades.
+- Los signos de moneda (`$`) en texto corrido están escapados como `\$` para evitar conflictos con el delimitador de LaTeX.
+- Cada capítulo incluye una sección *Problemas adicionales* con 7–10 problemas de elaboración propia, congruentes con el tema del capítulo.
 
----
+## Cómo contribuir
 
-## CONTENIDO
+1. Revisar un capítulo y corregir errores OCR residuales
+2. Modernizar el enunciado de un problema (actualizar referencias culturales de 1985)
+3. Agregar una solución de referencia en cualquier lenguaje moderno
+4. Crear diagramas ASCII o SVG para los problemas que los incluían en el original
 
-1. **Capítulo 1: Problemas introductorios**
-2. **Capítulo 2: Álgebra**
-3. **Capítulo 3: Geometría**
-4. **Capítulo 4: Trigonometría**
-5. **Capítulo 5: Probabilidad y estadística**
-6. **Capítulo 6: Matemáticas intermedias**
-7. **Capítulo 7: Teoría de los números**
-8. **Capítulo 8: Ciencias, química, física y biología**
-9. **Capítulo 9: Administración**
-10. **Capítulo 10: Diversión con la computadora**
-11. **Capítulo 11: Miscelánea de problemas**
+## Licencia
 
----
-
-## Revisión 2
-
-Además de los paradigmas de programación procedimental, lógica y funcional, existen otros paradigmas importantes en la programación que incluyen:
-
-### Programación Orientada a Objetos (POO)
-
-Este paradigma se basa en la organización del software en "objetos", que son instancias de clases. Los objetos encapsulan datos y comportamientos relacionados.
-
-La programación orientada a objetos se centra en conceptos como clases, objetos, herencia, polimorfismo, encapsulación y abstracción.
-
-### Programación Orientada a Eventos
-
-En este paradigma, el flujo del programa está determinado por eventos, como acciones del usuario (clics de botones, movimientos de ratón), mensajes de otros programas o disparadores en una aplicación.
-
-Es común en entornos de interfaces gráficas de usuario (GUI) y en la programación de aplicaciones web.
-
-### Programación Declarativa
-
-Aunque es similar a la programación lógica, la programación declarativa se enfoca en el qué en lugar del cómo. Especifica el resultado deseado sin dictar los pasos específicos para lograrlo.
-
-Ejemplos incluyen lenguajes de consulta como SQL, así como lenguajes de programación de hojas de estilo como CSS.
-
-### Programación Reactiva
-
-Este paradigma se enfoca en manejar flujos de datos asíncronos y la propagación de cambios. Se utiliza en entornos donde la respuesta a estímulos en tiempo real es crucial.
-
-Es común en el desarrollo de interfaces de usuario modernas, aplicaciones móviles y aplicaciones web.
-
-### Programación Concurrente y Paralela
-
-Este paradigma se refiere a la ejecución de varias tareas de manera simultánea. Se utiliza para aprovechar al máximo los recursos de hardware, como los procesadores multi-core.
-
-Es importante en aplicaciones de alto rendimiento y sistemas que requieren procesamiento en tiempo real.
-
-### Programación Basada en Aspectos
-
-Permite la separación de preocupaciones a través de la introducción de aspectos, que encapsulan comportamientos que afectan múltiples clases en un solo módulo.
-
-Es útil para manejar preocupaciones transversales como la gestión de transacciones, la seguridad y el registro (logging).
-
-### Programación Basada en Componentes
-
-Este paradigma se enfoca en la construcción de software utilizando componentes reutilizables. Los componentes son piezas de código que se pueden ensamblar para formar aplicaciones completas.
-
-Es común en la arquitectura de software empresarial y en el desarrollo de aplicaciones web modernas.
-
-### Metaprogramación
-
-La metaprogramación implica escribir programas que generan o manipulan otros programas o a sí mismos. Esto incluye conceptos como macros, reflexiones y anotaciones.
-
-Es usada para crear frameworks y librerías de alto nivel que proporcionan abstracciones poderosas.
-
----
+Transcripción con fines educativos. Los derechos del contenido original pertenecen a Editorial Limusa / Hayden Book Company.
