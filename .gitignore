@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build / output
+dist/
+build/
+*.o
+*.out
+
+# PDF del libro (material con derechos — no commitear)
+*.pdf

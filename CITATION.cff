@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: "Problemas para Resolver con Computadora — Edición 2026"
+message: "Si utilizas este material en tu investigación o curso, cita usando estos metadatos."
+type: dataset
+authors:
+  - name: "Spencer, Donald D."
+    alias: "Autor original (caps. 1–11)"
+  - name: "TecNM Campus Tijuana"
+    alias: "Extensión moderna (caps. 12–22)"
+    city: Tijuana
+    country: MX
+    website: "https://www.tectijuana.edu.mx"
+repository-code: "https://github.com/tectijuana/problemasresolverporcomputadora"
+abstract: >
+  Colección de 1,131 problemas de programación en español organizada en
+  22 capítulos. Los capítulos 1–11 son la transcripción modernizada del
+  libro clásico de Donald D. Spencer (Editorial Limusa, 1985). Los
+  capítulos 12–22 son una extensión de elaboración propia que cubre
+  algoritmos avanzados, POO, bases de datos, desarrollo web, sistemas
+  distribuidos, IA clásica, ingeniería de LLMs, agentes autónomos,
+  sistemas embebidos con IA y seguridad responsable — con contexto
+  mexicano y criterios de evaluación objetivos.
+keywords:
+  - programación
+  - algoritmos
+  - inteligencia artificial
+  - LLMs
+  - agentes autónomos
+  - sistemas embebidos
+  - IoT
+  - TinyML
+  - educación
+  - México
+  - español
+license: CC-BY-NC-SA-4.0
+version: "2.0"
+date-released: "2026-06-27"
