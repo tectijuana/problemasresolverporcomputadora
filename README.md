@@ -31,4 +31,4 @@ Preocupado por retos incrementales a los estudiantes o hobbies del área que inv
 
 ## Licencia
 
-Transcripción con fines educativos. Los derechos del contenido original pertenecen a Editorial Limusa / Hayden Book Company.
+Transcripción con fines educativos.
